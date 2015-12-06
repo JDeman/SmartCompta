@@ -1,0 +1,12 @@
+{% extends "AEUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block button %}
+{% endblock button %}
+
+{% block fos_user_content %}
+    <div style="margin-left: 20px; margin-top: 30px;">
+    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+    </div>
+{% endblock fos_user_content %}

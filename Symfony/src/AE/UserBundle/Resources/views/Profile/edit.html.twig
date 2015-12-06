@@ -1,0 +1,8 @@
+{% extends "AEUserBundle::layout.html.twig" %}
+{% form_theme form '::Form/field.php.twig' %}
+
+{% block fos_user_content %}
+    {% block button %}
+    {% endblock button %}
+{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+{% endblock fos_user_content %}

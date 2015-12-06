@@ -1,0 +1,14 @@
+{% extends "AEUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div style="margin-left: 30px;">
+        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+        {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        {% endif %}
+
+        <p>Aller au <a href="{{ path('dashboard_user') }}">Dashboard</a></p>
+    </div>
+{% endblock fos_user_content %}
