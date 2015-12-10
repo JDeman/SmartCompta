@@ -3,7 +3,7 @@ a_eplatform_homepage:
     defaults: { _controller: AEplatformBundle:Default:index }
 
 page_d_accueil:
-    path:    /homepage
+    path:    /
     defaults: {_controller: AEplatformBundle:Advert:homepage }
 
 page_faq:
