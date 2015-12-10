@@ -1,20 +1,6 @@
 {% extends "AEUserBundle::layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block navbar %}
-    <div class="row" style="margin-top: 20px; margin-left: 30px;">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a href="{{ path('dashboard_user') }}">
-                <img src="{{asset('img/logo_nav.png')}}"/>
-            </a>
-        {% else %}
-            <a href="{{ path('page_d_accueil') }}">
-                <img src="{{asset('img/logo_nav.png')}}"/>
-            </a>
-        {% endif %}
-    </div>
-{% endblock navbar %}
-
 {#
 {% block fos_user_content %}
 {% if error %}

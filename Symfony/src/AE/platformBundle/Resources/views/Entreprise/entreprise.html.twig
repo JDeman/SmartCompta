@@ -1,14 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Entreprise</title>
-</head>
-<body>
+{% extends "AEplatformBundle::layout_dashboard.php.twig" %}
+{% form_theme form '::Form/field.php.twig' %}
 
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% block title %}
+Entreprise
+{% endblock %}
 
-</body>
-</html>
+{% block aeplatform_header %}
+    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Mon Entreprise</h1>
+                        <hr class="small">
+                        <!--span class="subheading">Have questions? I have answers (maybe).</span-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block aeplatform_body %}
+
+<div class="col-lg-11 col-md-11" style="margin-top: -40px;">
+    <div class="jumbotron">
+        <div style="margin-left: 20px; margin-right: 30px;">
+            {{ form_start(form) }}
+
+            {{ form_row(form.activite) }}
+            {{ form_widget(form.activite) }}
+
+            {{ form_row(form.secteurDactivite) }}
+            {{ form_widget(form.secteurDactivite) }}
+
+            {{ form_row(form.declaration) }}
+            {{ form_widget(form.declaration) }}
+
+            {{ form_row(form.startDate) }}
+            {{ form_widget(form.startDate) }}
+
+            {{ form_row(form.accre) }}
+            {{ form_widget(form.accre) }}
+
+            {{ form_row(form.nom) }}
+            {{ form_widget(form.nom) }}
+
+            {{ form_row(form.prenom) }}
+            {{ form_widget(form.prenom) }}
+
+            {{ form_row(form.email) }}
+            {{ form_widget(form.email) }}
+
+            {{ form_row(form.telephone) }}
+            {{ form_widget(form.telephone) }}
+
+            {{ form_row(form.adresse) }}
+            {{ form_widget(form.adresse) }}
+
+            {{ form_row(form.codePostal) }}
+            {{ form_widget(form.codePostal) }}
+
+            {{ form_row(form.ville) }}
+            {{ form_widget(form.ville) }}
+
+            {{ form_row(form.pays) }}
+            {{ form_widget(form.pays) }}
+
+            {{ form_row(form.siretId) }}
+            {{ form_widget(form.siretId) }}
+
+            {{ form_row(form.nomEntreprise) }}
+            {{ form_widget(form.nomEntreprise) }}
+
+            {{ form_row(form.nafId) }}
+            {{ form_widget(form.nafId) }}
+
+            {{ form_row(form.villeRCS) }}
+            {{ form_widget(form.villeRCS) }}
+
+            {{ form_row(form.chiffreDAffaire) }}
+            {{ form_widget(form.chiffreDAffaire) }}
+
+            <div class="col-lg-offset-9 col-md-offset-9 col-xs-offset-8">
+                {{ form_row(form.enregistrer, {'attr': {'class': 'btn btn-default' }}) }}
+                {{ form_widget(form.enregistrer, {'attr': {'class': 'btn btn-default' }}) }}
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

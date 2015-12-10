@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll" style="margin-top: 12px; margin-left: 10px">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ path('dashboard_user') }}">
+                    <img src="{{asset('img/logo_nav.png')}}"/>
+                </a>
+            {% else %}
+                <a href="{{ path('page_d_accueil') }}">
+                    <img src="{{asset('img/logo_nav.png')}}"/>
+                </a>
+            {% endif %}
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
+                {#<li><a href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a></li>#}
+                <li><a href="{{ path('entreprise_user') }}">Mon entreprise</a></li>
+                <li><a href="#">Aide</a></li>
+                <li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% block name %}
+                        {% endblock name %}
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
