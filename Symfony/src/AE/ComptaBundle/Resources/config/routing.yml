@@ -1,0 +1,7 @@
+ae_compta_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AEComptaBundle:Default:index }
+
+ae_compta_recettes:
+    resource: "@AEComptaBundle/Resources/config/routing/recettes.yml"
+    prefix:   /recettes
