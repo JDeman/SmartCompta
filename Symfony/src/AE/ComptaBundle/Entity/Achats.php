@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Entity()
  */
 
-class Recettes
+class Achats
 {
 
     /**
@@ -40,7 +40,7 @@ class Recettes
      *
      */
 
-    private $client;
+    private $fournisseur;
 
     /**
      * @ORM\Column(type="date")
@@ -111,24 +111,24 @@ class Recettes
     /**
      * Set client
      *
-     * @param string $client
+     * @param string $fournisseur
      * @return Recettes
      */
-    public function setClient($client)
+    public function setFournisseur($fournisseur)
     {
-        $this->client = $client;
+        $this->fournisseur = $fournisseur;
 
         return $this;
     }
 
     /**
-     * Get client
+     * Get fournisseur
      *
      * @return string
      */
-    public function getClient()
+    public function getFournisseur()
     {
-        return $this->client;
+        return $this->fournisseur;
     }
 
     /**

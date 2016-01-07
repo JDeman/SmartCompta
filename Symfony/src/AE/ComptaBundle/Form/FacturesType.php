@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RecettesType extends AbstractType
+class FacturesType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,13 @@ class RecettesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
-            ->add('montant')
             ->add('client')
-            ->add('modeDePaiement')
-            ->add('justificatif', 'file')
+            ->add('date')
+            ->add('produit')
+            ->add('quantite')
+            ->add('prixUnitaireHT')
+            ->add('prixTotalHT')
+            ->add('recetteTotaleHT')
         ;
     }
 
@@ -29,7 +31,7 @@ class RecettesType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AE\ComptaBundle\Entity\Recettes'
+            'data_class' => 'AE\ComptaBundle\Entity\Factures'
         ));
     }
 
@@ -38,6 +40,6 @@ class RecettesType extends AbstractType
      */
     public function getName()
     {
-        return 'ae_comptabundle_recettes';
+        return 'ae_comptabundle_factures';
     }
 }
