@@ -570,7 +570,7 @@
     <parameter key="fos_user.registration.confirmation.from_email" type="collection">
       <parameter key="webmaster@example.com">webmaster</parameter>
     </parameter>
-    <parameter key="fos_user.registration.confirmation.enabled">true</parameter>
+    <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
     <parameter key="fos_user.registration.form.type">ae_user_registration</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
@@ -2134,10 +2134,6 @@
         <argument>FOS\UserBundle\EventListener\FlashListener</argument>
       </call>
       <call method="addSubscriberService">
-        <argument>fos_user.listener.email_confirmation</argument>
-        <argument>FOS\UserBundle\EventListener\EmailConfirmationListener</argument>
-      </call>
-      <call method="addSubscriberService">
         <argument>fos_user.listener.resetting</argument>
         <argument>FOS\UserBundle\EventListener\ResettingListener</argument>
       </call>
@@ -2189,7 +2185,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>568f0ad325fea5.02102340</argument>
+            <argument>568f1251c89032.08490039</argument>
           </service>
         </argument>
       </argument>
@@ -2472,7 +2468,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>568f0ad325fea5.02102340</argument>
+            <argument>568f1251c89032.08490039</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3290,13 +3286,6 @@
     <service id="fos_user.registration.form.type" class="FOS\UserBundle\Form\Type\RegistrationFormType">
       <tag name="form.type" alias="fos_user_registration"/>
       <argument>AE\UserBundle\Entity\User</argument>
-    </service>
-    <service id="fos_user.listener.email_confirmation" class="FOS\UserBundle\EventListener\EmailConfirmationListener">
-      <tag name="kernel.event_subscriber"/>
-      <argument type="service" id="fos_user.mailer"/>
-      <argument type="service" id="fos_user.util.token_generator"/>
-      <argument type="service" id="router"/>
-      <argument type="service" id="session"/>
     </service>
     <service id="fos_user.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
