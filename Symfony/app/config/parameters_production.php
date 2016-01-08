@@ -11,6 +11,6 @@
     $container->setParameter('secret', getenv('SECRET'));
     $container->setParameter('locale', 'en');
     $container->setParameter('mailer_transport', 'gmail');
-    $container->setParameter('mailer_host', '127.0.0.1');
+    $container->setParameter('mailer_host', '~');
     $container->setParameter('mailer_user', 'testpst4a@gmail.com');
     $container->setParameter('mailer_password', 'pst4a1516');
