@@ -91,7 +91,7 @@ fos_user:
         form:
             type: ae_user_registration
         confirmation:
-            enabled: true
+            enabled: false
 
 mremi_contact:
     store_data:            false
