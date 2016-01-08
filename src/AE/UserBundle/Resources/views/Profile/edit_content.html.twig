@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="col-lg-11 col-md-11" style="margin-top: -40px;">
+    <div class="jumbotron">
+        <div style="margin-left: 20px; margin-right: 30px;">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': 'fos_user_profile_edit'}}) }}
+
+            {{ form_row(form.nom) }}
+            {{ form_widget(form.nom) }}
+
+            {{ form_row(form.prenom) }}
+            {{ form_widget(form.prenom) }}
+
+            {{ form_row(form.username) }}
+            {{ form_widget(form.username) }}
+
+            {{ form_row(form.email) }}
+            {{ form_widget(form.email) }}
+
+            {{ form_row(form.siretId) }}
+            {{ form_widget(form.siretId) }}
+
+            {{ form_row(form.nafId) }}
+            {{ form_widget(form.nafId) }}
+
+            {{ form_row(form.current_password) }}
+            {{ form_widget(form.current_password) }}
+
+            {{ form_end(form) }}
+
+            <div>
+                <input type="submit" class="btn btn-default col-lg-offset-9 col-md-offset-9 col-xs-offset-8" value="{{ 'profile.edit.submit'|trans }}" />
+            </div>
+        </div>
+    </div>
+</div>

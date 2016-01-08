@@ -16,9 +16,13 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="AEplatformBundle">AE\platformBundle\AEplatformBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="AEUserBundle">AE\UserBundle\AEUserBundle</parameter>
       <parameter key="MremiContactBundle">Mremi\ContactBundle\MremiContactBundle</parameter>
       <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
+      <parameter key="AEComptaBundle">AE\ComptaBundle\AEComptaBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1473,6 +1477,8 @@
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
               <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
+              <argument key="ae_user_registration">aeuser.form.registration</argument>
+              <argument key="ae_user_profile">aeuser.form.profile</argument>
               <argument key="mremi_contact">mremi_contact.contact_form_type</argument>
             </argument>
             <argument type="collection">
@@ -2183,7 +2189,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>568f05eae13c36.85952559</argument>
+            <argument>568f07b32b9641.07255970</argument>
           </service>
         </argument>
       </argument>
@@ -2466,7 +2472,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>568f05eae13c36.85952559</argument>
+            <argument>568f07b32b9641.07255970</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3055,7 +3061,10 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
+              <argument key="AEplatformBundle">AE\platformBundle\Entity</argument>
+              <argument key="AEUserBundle">AE\UserBundle\Entity</argument>
               <argument key="MremiContactBundle">Mremi\ContactBundle\Entity</argument>
+              <argument key="AEComptaBundle">AE\ComptaBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -3070,6 +3079,45 @@
           <call method="setMetadataDriverImpl">
             <argument type="service">
               <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/platformBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/UserBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/ComptaBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>AE\platformBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/platformBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/UserBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/ComptaBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>AE\UserBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/platformBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/UserBundle/Entity</argument>
+                        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/ComptaBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>AE\ComptaBundle\Entity</argument>
+                </call>
                 <call method="addDriver">
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
@@ -3280,6 +3328,12 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="router"/>
       <argument>86400</argument>
+    </service>
+    <service id="aeuser.form.registration" class="AE\UserBundle\Form\RegistrationType">
+      <tag name="form.type" alias="ae_user_registration"/>
+    </service>
+    <service id="aeuser.form.profile" class="AE\UserBundle\Form\ProfileType">
+      <tag name="form.type" alias="ae_user_profile"/>
     </service>
     <service id="mremi_contact.contact_controller" class="Mremi\ContactBundle\Controller\ContactController">
       <argument type="service" id="debug.event_dispatcher"/>
@@ -3707,8 +3761,16 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
+        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/platformBundle/Resources/views</argument>
+        <argument>AEplatform</argument>
+      </call>
+      <call method="addPath">
         <argument>/home/julo/PhpstormProjects/SmartCompta/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/UserBundle/Resources/views</argument>
+        <argument>AEUser</argument>
       </call>
       <call method="addPath">
         <argument>/home/julo/PhpstormProjects/SmartCompta/Symfony/app/Resources/MremiContactBundle/views</argument>
@@ -3717,6 +3779,10 @@
       <call method="addPath">
         <argument>/home/julo/PhpstormProjects/SmartCompta/vendor/mremi/contact-bundle/Mremi/ContactBundle/Resources/views</argument>
         <argument>MremiContact</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/julo/PhpstormProjects/SmartCompta/src/AE/ComptaBundle/Resources/views</argument>
+        <argument>AECompta</argument>
       </call>
       <call method="addPath">
         <argument>/home/julo/PhpstormProjects/SmartCompta/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

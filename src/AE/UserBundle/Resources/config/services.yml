@@ -1,0 +1,9 @@
+services:
+    aeuser.form.registration:
+        class: AE\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: ae_user_registration}
+    aeuser.form.profile:
+            class: AE\UserBundle\Form\ProfileType
+            tags:
+                - { name: form.type, alias: ae_user_profile}
