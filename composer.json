@@ -49,11 +49,11 @@
         "bin-dir": "bin"
     },
     "extra": {
-        "symfony-app-dir": "Symfony/app",
-        "symfony-web-dir": "Symfony/web",
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "Symfony/app/config/parameters.yml"
+            "file": "app/config/parameters.yml"
         }
     }
 }
