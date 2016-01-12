@@ -1,25 +1,21 @@
+{# src/AE/platformBundle/Resources/views/layout.php.twig #}
+
 {% extends "::layout.php.twig" %}
 
-{% block navbar %}
-    {{ include("::navbar_dashboard.php.twig") }}
-{% endblock navbar %}
+{% block title %}
+    {{ parent() }}
+{% endblock %}
 
 {% block header %}
+    {% block aeplatform_header %}
+    {% endblock %}
 {% endblock %}
 
 {% block body %}
-    {% block button %}
-    {% endblock button %}
-
-    {% if app.request.hasPreviousSession %}
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <div class="flash-{{ type }}" style="margin-left: 20px; margin-top: 30px;" xmlns="">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
+    {% block navbar %}
+        <!-- Barre de navigation -->
+        {{ include("::navbar_dashboard.php.twig") }}
+    {% endblock navbar %}
 
     <div id="container">
         <div class="raw" style="margin-left: 40px;">
@@ -29,7 +25,7 @@
             <section class="col-lg-2 col-md-2 col-sm-3" style="text-align: center">
                 <ul class="list-unstyled" >
                     <li><a href="{{ path('recettes') }}">Livre de recettes</a></li><hr>
-                    <li><a href="{{ path('achats') }}">Registre des achats</a></li><hr>
+                    <li><a href="#">Registre des achats</a></li><hr>
                     <li><a href="#">Facturation</a></li><hr>
                     <li><a href="#">Compte bancaire</a></li><hr>
                     <li><a href="#">Devis</a></li>
@@ -38,8 +34,6 @@
             {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
 
             <section class="col-lg-10 col-md-10 col-sm-7">
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
                 {% block aeplatform_body %}
                 {% endblock %}
             </section>
@@ -47,4 +41,5 @@
 
     </div>
 
-{% endblock body %}
+
+{% endblock %}
