@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AE\ComptaBundle\Entity\Factures;
-use AE\ComptaBundle\Form\FacturessType;
+use AE\ComptaBundle\Form\FacturesType;
 
 /**
  * Factures controller.
