@@ -1,9 +1,9 @@
-{% extends "AEUserBundle::layout.html.twig" %}
+{% extends "::layout.php.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block button %}
-    <div style="margin-top: 30px;" class="btn - btn-default col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-3 col-sm-offset-4 col-xs-5 col-xs-offset-3">
+    <div style="margin-top: -70px;" class="pull-right">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
             <a href="{{ path('fos_user_security_logout') }}">
@@ -16,12 +16,12 @@
 {% endblock button %}
 
 {% block fos_user_content %}
-    <div style="margin-left: 30px;">
+    <div style="margin-left: 30px; margin-top: 100px;">
         <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
         {% if targetUrl %}
         <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
         {% endif %}
 
-        <p>Aller au <a href="{{ path('dashboard_user') }}">Dashboard</a></p>
+        <a class="btn btn-default" href="{{ path('dashboard_user') }}">Aller au Dashboard</a>
     </div>
 {% endblock fos_user_content %}

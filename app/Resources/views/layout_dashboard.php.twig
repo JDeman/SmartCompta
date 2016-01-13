@@ -1,0 +1,87 @@
+{% extends "::layout.php.twig" %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ include("::navbar_dashboard.php.twig") }}
+{% endblock navbar %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    {% block button %}
+        <a href="#menu-toggle" class="btn btn-default mobile-only col-xs-offset-4 col-xs-4" style="margin-top: -40px;" id="menu-toggle">Menu</a>
+    {% endblock button %}
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}" style="margin-left: 20px; margin-top: 30px;" xmlns="">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <!--<div id="container">
+        <div class="raw" style="margin-left: 40px;">
+            <h1><a href="{{ path('dashboard_user') }}">Accueil</a></h1>
+        </div>
+        <div class="raw" style="margin-top: 40px;"-->
+
+            <!--wrapper-->
+            <div id="wrapper">
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <!--li>
+                            <a href="#menu-toggle" class="btn" id="menu-toggle">Toggle Menu</a>
+                        </li-->
+                        <li class="sidebar-brand">
+                            <a href="{{ path('dashboard_user') }}">Accueil</a>
+                        </li>
+                        <li><a href="{{ path('recettes') }}">Livre de recettes</a></li>
+                        <li><a href="{{ path('achats') }}">Registre des achats</a></li>
+                        <li><a href="#">Facturation</a></li>
+                        <li><a href="#">Compte bancaire</a></li>
+                        <li><a href="#">Devis</a></li>
+                    </ul>
+                 </div>
+
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        {% block fos_user_content %}
+                        {% endblock fos_user_content %}
+                        {% block aeplatform_body %}
+                        {% endblock %}
+                    </div>
+                </div>
+
+            </div>
+
+            <!--section class="col-lg-2 col-md-2 col-sm-3" style="text-align: center">
+                <ul class="list-unstyled" >
+
+                </ul>
+            </section>
+            {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+
+            <section class="col-lg-10 col-md-10 col-sm-7">
+
+            </section>
+        </div>
+
+    </div-->
+
+{% endblock body %}
+
+{% block script %}
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+{% endblock %}

@@ -1,10 +1,10 @@
-{% extends "AEplatformBundle::layout.php.twig" %}
+{% extends "::layout.php.twig" %}
 
 {% block title %}
 	Homepage
 {% endblock %}
 
-{% block aeplatform_header %}
+{% block header %}
 	<header id="myCarousel" class="carousel slide">
 		<!-- Création du Carroussel -->
 		<ol class="carousel-indicators">
@@ -47,7 +47,7 @@
 	</header>
 {% endblock %}
 
-{% block aeplatform_body %}
+{% block body %}
 	<div id="container">
 		<div class="raw">
 			<div id="titre" class="col-lg-12">
@@ -81,7 +81,7 @@
 	</div>
 {% endblock %}
 
-{% block aeplatform_script %}
+{% block script %}
 <script>
 	$('.carousel').carousel({
 		interval: 5000
