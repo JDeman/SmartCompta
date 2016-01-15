@@ -91,7 +91,7 @@ file that was distributed with this source code.
 {% block button_row %}
     {% spaceless %}
         <div class="form-group">
-            <div class="col-lg-offset-6 col-lg-6 col-md-offset-6 col-md-6 col-xs-offset-6 col-xs-6">
+            <div class="text-center">
                 {% set attr = attr|merge({'class': attr.class|default('') ~ ' btn btn-default'}) %}
 
                 {{ form_widget(form, {'attr': attr}) }}

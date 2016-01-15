@@ -1,15 +1,15 @@
-{% extends '::base.html.twig' %}
+{% form_theme form '::Form/field.php.twig' %}
 
-{% block body -%}
-    <h1>Recettes creation</h1>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
+{#
+<ul class="record_actions">
     <li>
         <a href="{{ path('recettes') }}">
             Back to the list
         </a>
     </li>
 </ul>
-{% endblock %}
+#}

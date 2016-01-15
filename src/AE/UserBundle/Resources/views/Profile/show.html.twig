@@ -22,14 +22,14 @@
 
 {% block fos_user_content %}
 <div class="col-lg-11 col-md-11">
-    <div class="jumbotron">
+    <div class="row jumbotron">
         {% include "FOSUserBundle:Profile:show_content.html.twig" %}
         <a style="margin-left: 110px" class="btn btn-default" href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a>
     </div>
-    <div class="jumbotron">
+    <div class="row jumbotron">
         <a style="margin-left: 110px" class="btn btn-default" href="{{ path('fos_user_change_password') }}">Changer mon mot de passe</a>
     </div>
-    <div class="jumbotron">
+    <div class="row jumbotron">
         <a style="margin-left: 110px" class="btn btn-default" href="#">Suprimer mon compte</a>
     </div>
 </div>
