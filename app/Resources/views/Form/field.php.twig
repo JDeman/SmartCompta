@@ -31,6 +31,11 @@
     {% endif %}
 {% endblock form_label %}
 
+{%- block button_widget -%}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' btn btn-default')|trim}) %}
+    {{ parent() }}
+{%- endblock button_widget -%}
+
 {# et enfin les erreurs #}
 {% block form_errors %}
     {% spaceless %}

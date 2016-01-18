@@ -1,10 +1,19 @@
-{% extends "AEplatformBundle::layout.php.twig" %}
+{% extends "::layout.php.twig" %}
 
 {% block title %}
 	FAQ
 {% endblock %}
 
-{% block aeplatform_header %}
+{% block navbar %}
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		{{ include("::navbar_dashboard.php.twig") }}
+	{% else %}
+		{{ include("::navbar.php.twig") }}
+	{% endif %}
+
+{% endblock navbar %}
+
+{% block header %}
 	<header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
 		<div class="container">
 			<div class="row">
@@ -20,7 +29,7 @@
 	</header>
 {% endblock %}
 
-{% block aeplatform_body %}
+{% block body %}
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -34,7 +43,7 @@
 						</div>
 					</div>
 				</form>
-				<p>Vous ne trouvez pas ce que vous cherchez ?</br><a href="{{ path('page_contact') }}">Contactez nous</a></p>
+				<p>Vous ne trouvez pas ce que vous cherchez ?</br><a href="{{ path('mremi_contact_form') }}">Contactez nous</a></p>
 			</div>
 		</div>
 	</div>
