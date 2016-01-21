@@ -19,14 +19,27 @@ class AchatsController extends Controller
      * Lists all Achats entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AEComptaBundle:Achats')->findAll();
 
+        $entity = new Achats();
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('achats_show', array('id' => $entity->getId())));
+        }
+
         return $this->render('AEComptaBundle:Achats:index.html.twig', array(
             'entities' => $entities,
+            'form' => $form->createView(),
         ));
     }
     /**

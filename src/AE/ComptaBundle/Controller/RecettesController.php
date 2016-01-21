@@ -19,14 +19,27 @@ class RecettesController extends Controller
      * Lists all Recettes entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AEComptaBundle:Recettes')->findAll();
 
+        $entity = new Recettes();
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('recettes_show', array('id' => $entity->getId())));
+        }
+
         return $this->render('AEComptaBundle:Recettes:index.html.twig', array(
             'entities' => $entities,
+            'form'   => $form->createView(),
         ));
     }
     /**

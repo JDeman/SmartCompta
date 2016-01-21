@@ -13,7 +13,6 @@
 
 {% block body %}
     {% block button %}
-        <a href="#menu-toggle" class="btn btn-default mobile-only col-xs-offset-4 col-xs-4" style="margin-top: -40px;" id="menu-toggle">Menu</a>
     {% endblock button %}
 
     {% if app.request.hasPreviousSession %}
@@ -34,6 +33,7 @@
 
             <!--wrapper-->
             <div id="wrapper">
+                <a href="#menu-toggle" class="btn btn-default mobile-only col-xs-offset-4 col-xs-4" style="margin-top: -40px;" id="menu-toggle">Menu</a>
                 <div id="sidebar-wrapper">
                     <ul class="sidebar-nav">
                         <!--li>
@@ -41,11 +41,11 @@
                         </li-->
                         <li class="sidebar-brand">
                             <a href="{{ path('dashboard_user') }}">Accueil</a>
-                        </li>
-                        <li><a href="{{ path('recettes') }}">Livre de recettes</a></li>
-                        <li><a href="{{ path('achats') }}">Registre des achats</a></li>
-                        <li><a href="#">Facturation</a></li>
-                        <li><a href="#">Compte bancaire</a></li>
+                        </li><hr class="sidebar-edge">
+                        <li><a href="{{ path('recettes') }}">Livre de recettes</a></li><hr class="sidebar-edge">
+                        <li><a href="{{ path('achats') }}">Registre des achats</a></li><hr class="sidebar-edge">
+                        <li><a href="#">Facturation</a></li><hr class="sidebar-edge">
+                        <li><a href="#">Compte bancaire</a></li><hr class="sidebar-edge">
                         <li><a href="#">Devis</a></li>
                     </ul>
                  </div>

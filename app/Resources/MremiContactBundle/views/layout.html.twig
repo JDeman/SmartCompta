@@ -1,5 +1,14 @@
 {% extends "::layout.php.twig" %}
 
+{% block navbar %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ include("::navbar_dashboard.php.twig") }}
+    {% else %}
+        {{ include("::navbar.php.twig") }}
+    {% endif %}
+
+{% endblock navbar %}
+
 {% block header %}
     <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron.jpg')}})">
         <div class="container">
@@ -16,5 +25,6 @@
         </div>
     </header>
 {% endblock %}
-{% block body %}{% endblock %}
+{% block body %}
+{% endblock %}
 

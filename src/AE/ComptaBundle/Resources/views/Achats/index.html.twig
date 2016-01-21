@@ -1,49 +1,68 @@
-{% extends '::base.html.twig' %}
+{% extends '::layout_dashboard.php.twig' %}
 
-{% block body -%}
-    <h1>Registre des achats</h1>
+{% block header %}
+    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Registre des achats</h1>
+                        <hr class="small">
+                        <!--span class="subheading">Have questions? I have answers (maybe).</span-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Montant</th>
-                <th>Fournisseur</th>
-                <th>Modedepaiement</th>
-                <th>Justificatif</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('achats_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.montant }}</td>
-                <td>{{ entity.fournisseur }}</td>
-                <td>{{ entity.modeDePaiement }}</td>
-                <td>{{ entity.justificatif }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('achats_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('achats_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block aeplatform_body %}
 
-        <ul>
-        <li>
-            <a href="{{ path('achats_new') }}">
+    <div class="row col-lg-12 col-md-12 jumbotron">
+        <ul class="pull-right" style="margin-bottom: 30px; margin-top: -20px;">
+            <a class="btn btn-default" href="{{ path('recettes_new') }}">
                 Create a new entry
             </a>
-        </li>
-    </ul>
-    {% endblock %}
+        </ul>
+        <table class="records_list table table-responsive text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Montant</th>
+                    <th>Fournisseur</th>
+                    <th>Modedepaiement</th>
+                    <th>Justificatif</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('achats_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.montant }}</td>
+                    <td>{{ entity.fournisseur }}</td>
+                    <td>{{ entity.modeDePaiement }}</td>
+                    <td>{{ entity.justificatif }}</td>
+                    <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('achats_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('achats_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 jumbotron">
+        <h3 style="margin-top: -10px; margin-bottom: 30px;">Create a new entry</h3>
+        {% include("AEComptaBundle:Achats:new.html.twig") %}
+    </div>
+{% endblock %}
