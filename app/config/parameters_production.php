@@ -7,7 +7,7 @@
     $container->setParameter('database_port', $db['port']);//$db['port']);
     $container->setParameter('database_name', substr($db["path"], 1));//substr($db["path"], 1));
     $container->setParameter('database_user', $db['user']);//$db['user']);
-    $container->setParameter('database_password', $db['pass']);//$db['pass']);
+    $container->setParameter('database_password', '7ed727b7');//$db['pass']);
     $container->setParameter('secret', getenv('SECRET'));
     $container->setParameter('locale', 'en');
     $container->setParameter('mailer_transport', 'gmail');
