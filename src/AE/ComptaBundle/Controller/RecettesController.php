@@ -46,7 +46,7 @@ class RecettesController extends Controller
      * Creates a new Recettes entity.
      *
      */
-    public function createAction(Request $request)
+    /*public function createAction(Request $request)
     {
         $entity = new Recettes();
         $form = $this->createCreateForm($entity);
@@ -64,7 +64,7 @@ class RecettesController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
+    }*/
 
     /**
      * Creates a form to create a Recettes entity.
@@ -76,7 +76,7 @@ class RecettesController extends Controller
     private function createCreateForm(Recettes $entity)
     {
         $form = $this->createForm(new RecettesType(), $entity, array(
-            'action' => $this->generateUrl('recettes_create'),
+            'action' => $this->generateUrl('recettes'),
             'method' => 'POST',
         ));
 
@@ -94,7 +94,7 @@ class RecettesController extends Controller
         $entity = new Recettes();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AEComptaBundle:Recettes:new.html.twig', array(
+        return $this->render('AEComptaBundle:Recettes:index.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
