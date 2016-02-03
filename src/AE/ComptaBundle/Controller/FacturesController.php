@@ -19,21 +19,43 @@ class FacturesController extends Controller
      * Lists all Factures entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AEComptaBundle:Factures')->findAll();
+        $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+        $entreprise_id = $entreprise->getId();
+
+        $entities = $em->getRepository('AEComptaBundle:Factures')->findByEntreprise($entreprise_id);
+
+        $entity = new Factures();
+
+        $entity->setEntreprise($entreprise);
+
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('factures_show', array('id' => $entity->getId())));
+        }
+
 
         return $this->render('AEComptaBundle:Factures:index.html.twig', array(
             'entities' => $entities,
+            'form'   => $form->createView(),
         ));
+
     }
     /**
      * Creates a new Factures entity.
      *
      */
-    public function createAction(Request $request)
+    /*public function createAction(Request $request)
     {
         $entity = new Factures();
         $form = $this->createCreateForm($entity);
@@ -51,7 +73,7 @@ class FacturesController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
+    }*/
 
     /**
      * Creates a form to create a Factures entity.
@@ -63,7 +85,7 @@ class FacturesController extends Controller
     private function createCreateForm(Factures $entity)
     {
         $form = $this->createForm(new FacturesType(), $entity, array(
-            'action' => $this->generateUrl('factures_create'),
+            'action' => $this->generateUrl('factures'),
             'method' => 'POST',
         ));
 
@@ -81,7 +103,7 @@ class FacturesController extends Controller
         $entity = new Factures();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AEComptaBundle:Factures:new.html.twig', array(
+        return $this->render('AEComptaBundle:Factures:index.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));

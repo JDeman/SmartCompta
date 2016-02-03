@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class FacturesType extends AbstractType
+class ContractuelsType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,23 +15,20 @@ class FacturesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('contractuel', new ContractuelsType())
-            ->add('date')
-            ->add('produit')
-            ->add('quantite')
-            ->add('prixUnitaireHT')
-            ->add('prixTotalHT')
-            ->add('recetteTotaleHT')
+            ->add('nomContractuel', 'text')
+            ->add('adresseContractuel', 'textarea')
+            ->add('codePostalContractuel')
+            ->add('formeJuridiqueContractuel', 'text')
         ;
     }
-
+    
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AE\ComptaBundle\Entity\Factures'
+            'data_class' => 'AE\ComptaBundle\Entity\Contractuels'
         ));
     }
 
@@ -40,6 +37,6 @@ class FacturesType extends AbstractType
      */
     public function getName()
     {
-        return 'ae_comptabundle_factures';
+        return 'ae_comptabundle_contractuels';
     }
 }
