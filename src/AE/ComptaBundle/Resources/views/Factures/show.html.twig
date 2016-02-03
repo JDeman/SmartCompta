@@ -52,17 +52,26 @@
                 <td>{{ entity.contractuel.formeJuridiqueContractuel }}</td>
             </tr>
             <tr>
-                <th>Produit</th>
-                <td>{{ entity.produit }}</td>
+                <th>Produits</th>
             </tr>
+            {% for produit in entity.factureProduit %}
             <tr>
                 <th>Quantité</th>
-                <td>{{ entity.quantite }}</td>
+                <td>{{ entity.factureProduit.quantite }}</td>
             </tr>
             <tr>
-                <th>Prix unitaire HT</th>
-                <td>{{ entity.prixUnitaireHT }}</td>
+                <th>Designation</th>
+                <td>{{ entity.factureProduit.produits.reference }}</td>
             </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ entity.factureProduit.produits.designation }}</td>
+            </tr>
+            <tr>
+                <th>Forme juridique</th>
+                <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
+            </tr>
+            {% endfor %}
             <tr>
                 <th>Prix total HT</th>
                 <td>{{ entity.prixTotalHT }}</td>

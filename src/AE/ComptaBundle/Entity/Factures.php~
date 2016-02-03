@@ -28,24 +28,23 @@ class Factures
     private $entreprise;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels", inversedBy="factures")
+     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels")
      * @ORM\JoinColumn(nullable=false)
      */
 
     private $contractuel;
 
     /**
+     * @ORM\OneToMany(targetEntity="AE\ComptaBundle\Entity\FactureProduit", mappedBy="factures")
+     */
+
+    private $factureProduit;
+
+    /**
      * @ORM\Column(type="float")
      */
 
     private $prixUnitaireHT;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     */
-
-    private $produit;
 
     /**
      * @ORM\Column(type="date")

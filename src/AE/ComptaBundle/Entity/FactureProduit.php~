@@ -29,18 +29,16 @@ class FactureProduit
     private $quantite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Factures")
      */
 
-    private $entreprise;
+    private $factures;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Produits")
      */
 
-    private $contractuel;
+    private $produits;
 
 
     /**
@@ -74,5 +72,51 @@ class FactureProduit
     public function getQuantite()
     {
         return $this->quantite;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param \AE\platformBundle\Entity\Entreprise $entreprise
+     * @return FactureProduit
+     */
+    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \AE\platformBundle\Entity\Entreprise 
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * Set contractuel
+     *
+     * @param \AE\ComptaBundle\Entity\Contractuels $contractuel
+     * @return FactureProduit
+     */
+    public function setContractuel(\AE\ComptaBundle\Entity\Contractuels $contractuel)
+    {
+        $this->contractuel = $contractuel;
+
+        return $this;
+    }
+
+    /**
+     * Get contractuel
+     *
+     * @return \AE\ComptaBundle\Entity\Contractuels 
+     */
+    public function getContractuel()
+    {
+        return $this->contractuel;
     }
 }
