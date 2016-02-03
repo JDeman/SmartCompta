@@ -28,7 +28,7 @@ class Factures
     private $entreprise;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels", inversedBy="factures")
      * @ORM\JoinColumn(nullable=false)
      */
 

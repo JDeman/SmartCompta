@@ -22,6 +22,12 @@ class Contractuels
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="AE\ComptaBundle\Entity\Factures", mappedBy="contractuel")
+     */
+
+    private $factures;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nom_contractuel", type="string", length=50)
@@ -150,46 +156,5 @@ class Contractuels
     public function getFormeJuridiqueContractuel()
     {
         return $this->formeJuridiqueContractuel;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->factures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add factures
-     *
-     * @param \AE\ComptaBundle\Entity\Factures $factures
-     * @return Contractuels
-     */
-    public function addFacture(\AE\ComptaBundle\Entity\Factures $factures)
-    {
-        $this->factures[] = $factures;
-        $factures->setContractuel($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove factures
-     *
-     * @param \AE\ComptaBundle\Entity\Factures $factures
-     */
-    public function removeFacture(\AE\ComptaBundle\Entity\Factures $factures)
-    {
-        $this->factures->removeElement($factures);
-    }
-
-    /**
-     * Get factures
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFactures()
-    {
-        return $this->factures;
     }
 }

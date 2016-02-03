@@ -39,6 +39,7 @@ class FacturesController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $em->persist($entity->getContractuel());
             $em->flush();
 
             return $this->redirect($this->generateUrl('factures_show', array('id' => $entity->getId())));
