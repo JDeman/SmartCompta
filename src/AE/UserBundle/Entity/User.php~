@@ -174,27 +174,4 @@ class User extends BaseUser
     {
         return $this->telephone;
     }
-
-    /**
-     * Set entreprise
-     *
-     * @param \AE\platformBundle\Entity\Entreprise $entreprise
-     * @return User
-     */
-    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
-    {
-        $this->entreprise = $entreprise;
-
-        return $this;
-    }
-
-    /**
-     * Get entreprise
-     *
-     * @return \AE\platformBundle\Entity\Entreprise 
-     */
-    public function getEntreprise()
-    {
-        return $this->entreprise;
-    }
 }

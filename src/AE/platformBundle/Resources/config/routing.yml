@@ -14,6 +14,10 @@ dashboard_user:
     path:   /dashboard
     defaults: {_controller: AEplatformBundle:Dashboard:dashboard}
 
-entreprise_user:
-    path:   /mon-entreprise
+new_entreprise_user:
+    path:   /nouvelle-entreprise
     defaults: {_controller: AEplatformBundle:Entreprise:newEntreprise}
+
+show_entreprise_user:
+    path:   /mon-entreprise
+    defaults: {_controller: AEplatformBundle:Entreprise:showEntreprise}

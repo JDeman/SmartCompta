@@ -25,11 +25,15 @@ class RecettesController extends Controller
 
         $entities = $em->getRepository('AEComptaBundle:Recettes')->findAll();
 
+        $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+
         $entity = new Recettes();
+        $entity->setEntreprise($entreprise);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

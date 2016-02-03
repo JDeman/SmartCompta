@@ -197,27 +197,4 @@ class Recettes
         $this->file = $file;
     }
 
-
-    /**
-     * Set entreprise
-     *
-     * @param \AE\platformBundle\Entity\Entreprise $entreprise
-     * @return Recettes
-     */
-    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
-    {
-        $this->entreprise = $entreprise;
-
-        return $this;
-    }
-
-    /**
-     * Get entreprise
-     *
-     * @return \AE\platformBundle\Entity\Entreprise 
-     */
-    public function getEntreprise()
-    {
-        return $this->entreprise;
-    }
 }

@@ -25,11 +25,15 @@ class AchatsController extends Controller
 
         $entities = $em->getRepository('AEComptaBundle:Achats')->findAll();
 
+        $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+
         $entity = new Achats();
+        $entity->setEntreprise($entreprise);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -46,7 +50,7 @@ class AchatsController extends Controller
      * Creates a new Achats entity.
      *
      */
-    public function createAction(Request $request)
+    /*public function createAction(Request $request)
     {
         $entity = new Achats();
         $form = $this->createCreateForm($entity);
@@ -64,7 +68,7 @@ class AchatsController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
+    }*/
 
     /**
      * Creates a form to create a Achats entity.
@@ -76,7 +80,7 @@ class AchatsController extends Controller
     private function createCreateForm(Achats $entity)
     {
         $form = $this->createForm(new AchatsType(), $entity, array(
-            'action' => $this->generateUrl('achats_create'),
+            'action' => $this->generateUrl('achats'),
             'method' => 'POST',
         ));
 
@@ -94,7 +98,7 @@ class AchatsController extends Controller
         $entity = new Achats();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AEComptaBundle:Achats:new.html.twig', array(
+        return $this->render('AEComptaBundle:Achats:index.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));

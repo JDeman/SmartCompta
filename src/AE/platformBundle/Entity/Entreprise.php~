@@ -26,8 +26,7 @@ class Entreprise
     protected $id;
 
     /**
-     * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise", cascade={"persist"})
      */
 
     private $user;
@@ -466,28 +465,5 @@ class Entreprise
     public function getChiffreDAffaireMensuel()
     {
         return $this->chiffre_d_affaire_mensuel;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \AE\UserBundle\Entity\User $user
-     * @return Entreprise
-     */
-    public function setUser(\AE\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AE\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

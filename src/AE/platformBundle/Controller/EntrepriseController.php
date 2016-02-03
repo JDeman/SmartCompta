@@ -15,7 +15,10 @@ class EntrepriseController extends Controller
     public function newEntrepriseAction(Request $request)
     {
 
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
         $entreprise = new Entreprise();
+        $entreprise->setUser($user);
 
         $form = $this->createForm(new EntrepriseType(), $entreprise);
 
@@ -23,6 +26,7 @@ class EntrepriseController extends Controller
 
         if ($form->isValid()) {
 
+            $user->setEntreprise($entreprise);
             $em = $this->getDoctrine()->getManager();
             $em->persist($entreprise);
             $em->flush();
@@ -35,5 +39,32 @@ class EntrepriseController extends Controller
         return $this->render('AEplatformBundle:Entreprise:entreprise.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function showEntrepriseAction()
+    {
+
+        $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+
+        if($entreprise) {
+
+            $entreprise_id = $entreprise->getId();
+            $em = $this->getDoctrine()->getManager();
+
+            $entity = $em->getRepository('AEplatformBundle:Entreprise')->find($entreprise_id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Entreprise entity.');
+            }
+
+            return $this->render('AEplatformBundle:Entreprise:show_entreprise.html.twig', array(
+                'entity'      => $entity,
+            ));
+
+        } else {
+
+            return $this->redirectToRoute('new_entreprise_user', array(), 301);
+        }
+
     }
 }

@@ -26,7 +26,7 @@ class EntrepriseType extends AbstractType
                 ),
                 'expanded' => true
             ))
-            ->add('secteurDactivite', 'choice', array(
+            ->add('secteur_d_activite', 'choice', array(
                 'choices' => array(
                     'Web&Informatique'   => 'Web et Informatique',
                     'Consulting&Service' => 'Consulting et Services',
@@ -47,7 +47,7 @@ class EntrepriseType extends AbstractType
                 ),
                 'expanded' => true
             ))
-            ->add('startDate', 'date', array('label'  => 'Date de début activité'))
+            ->add('date_de_lancement', 'date', array('label'  => 'Date de début activité'))
             ->add('accre', 'choice', array(
                 'choices' => array(
                     'oui' => 'oui',
@@ -55,19 +55,19 @@ class EntrepriseType extends AbstractType
                 ),
                 'expanded' => true
             ))
-            ->add('nom', 'text', array('label'  => 'Nom du dirigeant'))
-            ->add('prenom', 'text', array('label'  => 'Prénom du dirigeant'))
-            ->add('email', 'email', array('label'  => 'E-mail'))
-            ->add('telephone', 'number', array('label'  => 'Numéro de téléphone'))
-            ->add('adresse', 'textarea', array('label'  => 'Adresse'))
-            ->add('codePostal', 'number', array('label'  => 'Code postal'))
-            ->add('ville', 'text', array('label'  => 'Ville'))
-            ->add('pays', 'country', array('label'  => 'Pays'))
-            ->add('siretId', 'number', array('label'  => 'SIRET/SIREN'))
-            ->add('nomEntreprise', 'text', array('label'  => 'Nom commercial'))
-            ->add('nafId', 'text', array('label'  => 'Code NAF/APE'))
-            ->add('villeRCS', 'text', array('label'  => 'Ville immatriculation au RCS'))
-            ->add('chiffreDAffaire', 'money', array('label'  => 'Chiffre affaire mensuel'))
+            //->add('nom', 'text', array('label'  => 'Nom du dirigeant'))
+            //->add('prenom', 'text', array('label'  => 'Prénom du dirigeant'))
+            ->add('email_entreprise', 'email', array('label'  => 'E-mail'))
+            ->add('telephone_entreprise', 'number', array('label'  => 'Numéro de téléphone'))
+            ->add('adresse_entreprise', 'textarea', array('label'  => 'Adresse'))
+            ->add('code_postal_entreprise', 'number', array('label'  => 'Code postal'))
+            //->add('ville', 'text', array('label'  => 'Ville'))
+            //->add('pays', 'country', array('label'  => 'Pays'))
+            ->add('siret', 'number', array('label'  => 'SIRET/SIREN'))
+            ->add('nom_entreprise', 'text', array('label'  => 'Nom commercial'))
+            ->add('naf_id', 'text', array('label'  => 'Code NAF/APE'))
+            ->add('ville_rcs', 'text', array('label'  => 'Ville immatriculation au RCS'))
+            ->add('chiffre_d_affaire_mensuel', 'money', array('label'  => 'Chiffre affaire mensuel'))
             ->add('enregistrer', 'submit', array('label'  => 'Enregistrer'))
         ;
     }

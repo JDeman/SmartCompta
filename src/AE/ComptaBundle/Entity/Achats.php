@@ -22,6 +22,13 @@ class Achats
     protected $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
+     * @ORM\JoinColumn(nullable=false)
+     */
+
+    private $entreprise;
+
+    /**
      * @ORM\Column(type="string", length=255)
      *
      */
@@ -190,4 +197,27 @@ class Achats
         $this->file = $file;
     }
 
+
+    /**
+     * Set entreprise
+     *
+     * @param \AE\platformBundle\Entity\Entreprise $entreprise
+     * @return Achats
+     */
+    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \AE\platformBundle\Entity\Entreprise 
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
 }

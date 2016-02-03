@@ -1,0 +1,89 @@
+{% extends "::layout_dashboard.php.twig" %}
+
+{% block title %}
+    Entreprise
+{% endblock %}
+
+{% block header %}
+    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Mon Entreprise</h1>
+                        <hr class="small">
+                        <!--span class="subheading">Have questions? I have answers (maybe).</span-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block aeplatform_body %}
+
+    <div class="row col-lg-12 col-md-12 jumbotron">
+
+        <table class="record_properties table table-responsive">
+            <tbody>
+            <tr>
+                <th>Nom de l'entreprise</th>
+                <td>{{ entity.NomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Activité</th>
+                <td>{{ entity.activite }}</td>
+            </tr>
+            <tr>
+                <th>Secteur d'activité</th>
+                <td>{{ entity.secteurDActivite }}</td>
+            </tr>
+            <tr>
+                <th>Déclaration</th>
+                <td>{{ entity.declaration }}</td>
+            </tr>
+            <tr>
+                <th>Date de lancement</th>
+                <td>{{ entity.dateDeLancement|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>ACCRE</th>
+                <td>{{ entity.accre }}</td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td>{{ entity.emailEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Télephone</th>
+                <td>{{ entity.telephoneEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresseEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ entity.codePostalEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Numéro SIRET/SIREN</th>
+                <td>{{ entity.siret }}</td>
+            </tr>
+            <tr>
+                <th>Code NAF</th>
+                <td>{{ entity.nafId }}</td>
+            </tr>
+            <tr>
+                <th>Ville d'immatriculation au RCS</th>
+                <td>{{ entity.villeRcs }}</td>
+            </tr>
+            <tr>
+                <th>Chiffre d'affaire mensuel</th>
+                <td>{{ entity.chiffreDAffaireMensuel }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
