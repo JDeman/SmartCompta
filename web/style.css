@@ -11,6 +11,13 @@ label {
   border-color: #777;
 }
 
+.small-2 {
+    max-width: 500px;
+    margin: 15px auto;
+    border-width: 1px;
+    border-color: deepskyblue;
+}
+
 .footer-font{
 	color: #777;
 	font-size: 10px;

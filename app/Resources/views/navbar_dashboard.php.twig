@@ -19,21 +19,21 @@
             </button>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse"style="background-color: white;" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}" style="color: deepskyblue">Mon compte</a></li>
                 {#<li><a href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a></li>#}
-                <li><a href="{{ path('show_entreprise_user') }}">Mon entreprise</a></li>
-                <li><a href="#">Aide</a></li>
+                <li><a href="{{ path('show_entreprise_user') }}" style="color: deepskyblue">Mon entreprise</a></li>
+                <li><a href="#" style="color: deepskyblue">Aide</a></li>
                 <li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         {% block name %}
                         {% endblock name %}
-                            <a href="{{ path('fos_user_security_logout') }}">
+                            <a href="{{ path('fos_user_security_logout') }}" style="color: deepskyblue">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
                     {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <a href="{{ path('fos_user_security_login') }}" style="color: deepskyblue">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                     {% endif %}
                 </li>
             </ul>
