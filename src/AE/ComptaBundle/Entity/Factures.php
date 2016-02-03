@@ -28,37 +28,23 @@ class Factures
     private $entreprise;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Contractuels")
      * @ORM\JoinColumn(nullable=false)
      */
 
     private $contractuel;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\OneToMany(targetEntity="AE\ComptaBundle\Entity\FactureProduit", mappedBy="factures", cascade={"persist"})
      */
 
-    private $prixUnitaireHT;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     */
-
-    private $produit;
+    private $factureProduit;
 
     /**
      * @ORM\Column(type="date")
      */
 
     private $date;
-
-
-     /**
-     * @ORM\Column(type="integer")
-     */
-
-    private $quantite;
 
     /**
      * @ORM\Column(type="float")
@@ -84,52 +70,6 @@ class Factures
     }
 
     /**
-     * Set prixUnitaireHT
-     *
-     * @param float $prixUnitaireHT
-     * @return Factures
-     */
-    public function setPrixUnitaireHT($prixUnitaireHT)
-    {
-        $this->prixUnitaireHT = $prixUnitaireHT;
-
-        return $this;
-    }
-
-    /**
-     * Get prixUnitaireHT
-     *
-     * @return float 
-     */
-    public function getPrixUnitaireHT()
-    {
-        return $this->prixUnitaireHT;
-    }
-
-    /**
-     * Set produit
-     *
-     * @param string $produit
-     * @return Factures
-     */
-    public function setProduit($produit)
-    {
-        $this->produit = $produit;
-
-        return $this;
-    }
-
-    /**
-     * Get produit
-     *
-     * @return string 
-     */
-    public function getProduit()
-    {
-        return $this->produit;
-    }
-
-    /**
      * Set date
      *
      * @param \DateTime $date
@@ -150,29 +90,6 @@ class Factures
     public function getDate()
     {
         return $this->date;
-    }
-
-    /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     * @return Factures
-     */
-    public function setQuantité($quantite)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
-     * @return integer 
-     */
-    public function getQuantite()
-    {
-        return $this->quantite;
     }
 
     /**
@@ -222,19 +139,6 @@ class Factures
     }
 
     /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     * @return Factures
-     */
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
      * Set entreprise
      *
      * @param \AE\platformBundle\Entity\Entreprise $entreprise
@@ -278,5 +182,46 @@ class Factures
     public function getContractuel()
     {
         return $this->contractuel;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->factureProduit = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add factureProduit
+     *
+     * @param \AE\ComptaBundle\Entity\FactureProduit $factureProduit
+     * @return Factures
+     */
+    public function addFactureProduit(\AE\ComptaBundle\Entity\FactureProduit $factureProduit)
+    {
+        $this->factureProduit[] = $factureProduit;
+        $factureProduit->setFactures($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove factureProduit
+     *
+     * @param \AE\ComptaBundle\Entity\FactureProduit $factureProduit
+     */
+    public function removeFactureProduit(\AE\ComptaBundle\Entity\FactureProduit $factureProduit)
+    {
+        $this->factureProduit->removeElement($factureProduit);
+    }
+
+    /**
+     * Get factureProduit
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFactureProduit()
+    {
+        return $this->factureProduit;
     }
 }

@@ -35,25 +35,16 @@ class Factures
     private $contractuel;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     *
+     * @ORM\OneToMany(targetEntity="AE\ComptaBundle\Entity\FactureProduit", mappedBy="factures")
      */
 
-    private $client;
-
+    private $factureProduit;
 
     /**
      * @ORM\Column(type="float")
      */
 
     private $prixUnitaireHT;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     */
-
-    private $produit;
 
     /**
      * @ORM\Column(type="date")
@@ -89,29 +80,6 @@ class Factures
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set client
-     *
-     * @param string $client
-     * @return Factures
-     */
-    public function setClient($client)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
-     * Get client
-     *
-     * @return string 
-     */
-    public function getClient()
-    {
-        return $this->client;
     }
 
     /**
@@ -250,5 +218,64 @@ class Factures
     public function getRecetteTotaleHT()
     {
         return $this->recetteTotaleHT;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     * @return Factures
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param \AE\platformBundle\Entity\Entreprise $entreprise
+     * @return Factures
+     */
+    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \AE\platformBundle\Entity\Entreprise 
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * Set contractuel
+     *
+     * @param \AE\ComptaBundle\Entity\Contractuels $contractuel
+     * @return Factures
+     */
+    public function setContractuel(\AE\ComptaBundle\Entity\Contractuels $contractuel)
+    {
+        $this->contractuel = $contractuel;
+
+        return $this;
+    }
+
+    /**
+     * Get contractuel
+     *
+     * @return \AE\ComptaBundle\Entity\Contractuels 
+     */
+    public function getContractuel()
+    {
+        return $this->contractuel;
     }
 }

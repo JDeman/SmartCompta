@@ -19,7 +19,7 @@ class ProfileType extends AbstractType {
             ->add('nom', 'text')
             ->add('prenom', 'text')
             ->add('adresse', 'textarea')
-            ->add('code_postal', 'integer')
+            ->add('code_postal', 'number')
             ->add('telephone', 'number')
         ;
     }
