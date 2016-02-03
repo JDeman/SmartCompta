@@ -23,9 +23,10 @@ class RecettesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AEComptaBundle:Recettes')->findAll();
-
         $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+        $entreprise_id = $entreprise->getId();
+
+        $entities = $em->getRepository('AEComptaBundle:Recettes')->findByEntreprise($entreprise_id);
 
         $entity = new Recettes();
         $entity->setEntreprise($entreprise);
@@ -33,6 +34,12 @@ class RecettesController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $recette = $entity->getMontant();
+            $entreprise_old_CA = $entreprise->getChiffreDAffaireMensuel();
+            $entreprise_new_CA = $entreprise_old_CA + $recette;
+
+            $entreprise->setChiffreDAffaireMensuel($entreprise_new_CA);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

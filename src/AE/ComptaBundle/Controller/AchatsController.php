@@ -23,9 +23,10 @@ class AchatsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AEComptaBundle:Achats')->findAll();
-
         $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+        $entreprise_id = $entreprise->getId();
+
+        $entities = $em->getRepository('AEComptaBundle:Achats')->findByEntreprise($entreprise_id);
 
         $entity = new Achats();
         $entity->setEntreprise($entreprise);
@@ -33,6 +34,12 @@ class AchatsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $achat = $entity->getMontant();
+            $entreprise_old_CA = $entreprise->getChiffreDAffaireMensuel();
+            $entreprise_new_CA = $entreprise_old_CA - $achat;
+
+            $entreprise->setChiffreDAffaireMensuel($entreprise_new_CA);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
