@@ -1,11 +1,34 @@
 {% extends "::layout.php.twig" %}
 
 {% block title %}
-	Homepage
+	Page d'accueil
 {% endblock %}
 
 {% block header %}
-	<header id="myCarousel" class="carousel slide">
+	<div class="row" style="margin-top: 60px;
+							padding: 0;
+							border: none;
+							width: 101%;
+							height: 80px;
+							background-color: whitesmoke;">
+		<div class="pull-right">
+			<h2 style="margin-top: 40px"><span style="color: deepskyblue">S</span>imple <span style="color: deepskyblue">C</span>omplet</h2>
+			<h2><span style="color: deepskyblue">S</span>mart<span style="color: deepskyblue">C</span>ompta est votre solution</h2>
+		</div>
+	</div>
+	<header class="intro-header" style="background-image: url({{asset('img/new_logo.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<div class="page-heading">
+						<h1></h1>
+						<!--span class="subheading">Have questions? I have answers (maybe).</span-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	{#<header id="myCarousel" class="carousel slide">
 		<!-- Création du Carroussel -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -44,40 +67,44 @@
 			<span class="icon-next"></span>
 		</a>
 
-	</header>
+	</header>#}
 {% endblock %}
 
 {% block body %}
-	<div id="container">
-		<div class="raw">
-			<div id="titre" class="col-lg-12">
-				<h1>Site Saas PST</h1>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
-				<p>
-					Bienvenue sur le site !</br>
-				</p>
+	<div id="container" style="background-color: whitesmoke; padding-bottom: 300px;">
+		<div class="row" style="padding-top: 100px">
+			<div style="padding-left: 200px; font-size: 24px;">
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<p class="glyphicon glyphicon-ok">
+						Devis et Factures
+					</p></div>
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<p class="glyphicon glyphicon-ok">
+						Calcul du Chiffre d'Affaire
+					</p></div>
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<p class="glyphicon glyphicon-ok">
+						Suivit des Cotisations
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<p class="glyphicon glyphicon-ok">
+						Livre de Recette
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<p class="glyphicon glyphicon-ok">
+						Registre des Achats
+					</p>
+				</div>
 			</div>
 		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<div style="margin-top: -300px">
+		{{ parent() }}
 	</div>
 {% endblock %}
 
