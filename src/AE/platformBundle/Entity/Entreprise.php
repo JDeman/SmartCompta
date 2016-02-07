@@ -26,7 +26,7 @@ class Entreprise
     protected $id;
 
     /**
-     * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="AE\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
 
