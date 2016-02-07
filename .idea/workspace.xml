@@ -2,6 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5d7e9c-b19f-4646-916b-a8af0985161a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Achats.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Achats.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Contractuels.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Contractuels.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/ContractuelsType.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/ContractuelsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Entreprise.php" afterPath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Entreprise.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/FactureProduit.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/FactureProduit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/FactureProduitType.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/FactureProduitType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Factures.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Factures.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Pays.php" afterPath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Pays.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Produits.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Produits.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/ProduitsType.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Form/ProduitsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Recettes.php" afterPath="$PROJECT_DIR$/src/AE/ComptaBundle/Entity/Recettes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AE/UserBundle/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Ville.php" afterPath="$PROJECT_DIR$/src/AE/platformBundle/Entity/Ville.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/UserBundle/Resources/views/ChangePassword/changePassword.html.twig" afterPath="$PROJECT_DIR$/src/AE/UserBundle/Resources/views/ChangePassword/changePassword.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/UserBundle/Resources/views/ChangePassword/changePassword_content.html.twig" afterPath="$PROJECT_DIR$/src/AE/UserBundle/Resources/views/ChangePassword/changePassword_content.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/layout_dashboard.php.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layout_dashboard.php.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AE/platformBundle/Resources/views/Entreprise/show_entreprise.html.twig" afterPath="$PROJECT_DIR$/src/AE/platformBundle/Resources/views/Entreprise/show_entreprise.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bootstrap/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/web/bootstrap/css/simple-sidebar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SmartCompta.iws" />
@@ -30,9 +52,13 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1454843327059" expanded="true" signature="0:70970" placeholder="{&quot;hash&quot;: &quot;af6e33f169c163fe3cbe503a9aa932e3&quot;...}" />
+                <marker date="1454843327059" expanded="true" signature="378:68882" placeholder="[...]" />
+                <marker date="1454843327059" expanded="true" signature="14857:14939" placeholder="{&quot;name&quot;: &quot;doctrine/doctrine-cache-bundle&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,37 +67,27 @@
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05059022">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml.dist" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parameters_production.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters_production.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.41666666">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -135,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/config/parameters_production.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
       </list>
     </option>
   </component>
@@ -297,7 +314,7 @@
     <frame x="0" y="25" width="1920" height="1055" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33831376" sideWeight="0.48507464" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.54855925" sideWeight="0.48507464" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -360,34 +377,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/navbar.php.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36193028">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AE/platformBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AE/platformBundle/Resources/views/Advert/homepage.php.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bootstrap/css/clean-blog.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2932961">
@@ -682,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider editor-type-id="sourcemapFileViewerProvider">
         <state />
@@ -697,7 +678,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1454843327059" expanded="true" signature="0:70970" placeholder="{&quot;hash&quot;: &quot;af6e33f169c163fe3cbe503a9aa932e3&quot;...}" />
+            <marker date="1454843327059" expanded="true" signature="378:68882" placeholder="[...]" />
+            <marker date="1454843327059" expanded="true" signature="14857:14939" placeholder="{&quot;name&quot;: &quot;doctrine/doctrine-cache-bundle&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,10 +702,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.875">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SymfonyRequirements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3872678">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05059022">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41666666">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
