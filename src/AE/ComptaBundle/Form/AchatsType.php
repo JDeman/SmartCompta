@@ -18,7 +18,13 @@ class AchatsType extends AbstractType
             ->add('date')
             ->add('montant')
             ->add('fournisseur')
-            ->add('modeDePaiement')
+            ->add('modeDePaiement', 'choice', array(
+                'choices' => array(
+                    'CarteBancaire'   => 'Carte bancaire',
+                    'Cheque' => 'Chèques',
+                    'Especes'   => 'Espèces',
+                )
+            ))
             ->add('justificatif', 'file')
         ;
     }

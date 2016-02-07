@@ -23,13 +23,24 @@ class RecettesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AEComptaBundle:Recettes')->findAll();
+        $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+        $entreprise_id = $entreprise->getId();
+
+        $entities = $em->getRepository('AEComptaBundle:Recettes')->findByEntreprise($entreprise_id);
 
         $entity = new Recettes();
+        $entity->setEntreprise($entreprise);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $recette = $entity->getMontant();
+            $entreprise_old_CA = $entreprise->getChiffreDAffaireMensuel();
+            $entreprise_new_CA = $entreprise_old_CA + $recette;
+
+            $entreprise->setChiffreDAffaireMensuel($entreprise_new_CA);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -46,7 +57,7 @@ class RecettesController extends Controller
      * Creates a new Recettes entity.
      *
      */
-    public function createAction(Request $request)
+    /*public function createAction(Request $request)
     {
         $entity = new Recettes();
         $form = $this->createCreateForm($entity);
@@ -64,7 +75,7 @@ class RecettesController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
+    }*/
 
     /**
      * Creates a form to create a Recettes entity.
@@ -76,7 +87,7 @@ class RecettesController extends Controller
     private function createCreateForm(Recettes $entity)
     {
         $form = $this->createForm(new RecettesType(), $entity, array(
-            'action' => $this->generateUrl('recettes_create'),
+            'action' => $this->generateUrl('recettes'),
             'method' => 'POST',
         ));
 
@@ -94,7 +105,7 @@ class RecettesController extends Controller
         $entity = new Recettes();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AEComptaBundle:Recettes:new.html.twig', array(
+        return $this->render('AEComptaBundle:Recettes:index.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));

@@ -1,34 +1,77 @@
-{% extends '::base.html.twig' %}
+{% extends '::layout_dashboard.php.twig' %}
+{% form_theme delete_form '::Form/field.php.twig' %}
 
-{% block body -%}
-    <h1>Factures</h1>
 
-    <table class="record_properties">
-        <tbody>
+{% block header %}
+    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Facturation</h1>
+                        <hr class="small">
+                        <!--span class="subheading">Have questions? I have answers (maybe).</span-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block aeplatform_body %}
+
+    <div class="row col-lg-12 col-md-12 jumbotron">
+
+        <table class="record_properties table table-responsive">
+            <tbody>
             <tr>
-                <th>Id</th>
+                <th>Numéro de facture</th>
                 <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Client</th>
-                <td>{{ entity.client }}</td>
             </tr>
             <tr>
                 <th>Date</th>
                 <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Produit</th>
-                <td>{{ entity.produit }}</td>
+                <th>Contractuel</th>
             </tr>
+            <tr>
+                <th>Nom du contractuel</th>
+                <td>{{ entity.contractuel.nomContractuel }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.contractuel.adresseContractuel }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ entity.contractuel.codePostalContractuel }}</td>
+            </tr>
+            <tr>
+                <th>Forme juridique</th>
+                <td>{{ entity.contractuel.formeJuridiqueContractuel }}</td>
+            </tr>
+            <tr>
+                <th>Produits</th>
+            </tr>
+            {% for produit in entity.factureProduit %}
             <tr>
                 <th>Quantité</th>
-                <td>{{ entity.quantite }}</td>
+                <td>{{ entity.factureProduit.quantite }}</td>
             </tr>
             <tr>
-                <th>Prix unitaire HT</th>
-                <td>{{ entity.prixUnitaireHT }}</td>
+                <th>Designation</th>
+                <td>{{ entity.factureProduit.produits.reference }}</td>
             </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ entity.factureProduit.produits.designation }}</td>
+            </tr>
+            <tr>
+                <th>Forme juridique</th>
+                <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
+            </tr>
+            {% endfor %}
             <tr>
                 <th>Prix total HT</th>
                 <td>{{ entity.prixTotalHT }}</td>
@@ -37,21 +80,22 @@
                 <th>Total HT</th>
                 <td>{{ entity.recetteTotaleHT }}</td>
             </tr>
+            </tbody>
+        </table>
 
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('factures') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('factures_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <ul class="record_actions list-inline list-unstyled text-center">
+            <li>
+                <a class="btn btn-default" href="{{ path('factures') }}">
+                    Back to the list
+                </a>
+            </li>
+            <li>
+                <a class="btn btn-default" href="{{ path('factures_edit', { 'id': entity.id }) }}">
+                    Edit
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
 {% endblock %}
+

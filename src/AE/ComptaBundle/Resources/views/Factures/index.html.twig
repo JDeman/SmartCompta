@@ -1,53 +1,168 @@
-{% extends '::base.html.twig' %}
+{% extends '::layout_dashboard.php.twig' %}
 
-{% block body -%}
-    <h1>Facturation</h1>
+{% block header %}
+    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Facturation</h1>
+                        <hr class="small">
+                        <!--span class="subheading">Have questions? I have answers (maybe).</span-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Numéro de facture</th>
-                <th>Client</th>
-                <th>Date</th>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Prix unitaire HT</th>
-                <th>Prix total HT</th>
-                <th>Total HT</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('factures_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.client }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.produit }}</td>
-                <td>{{ entity.quantite }}</td>
-                <td>{{ entity.prixUnitaireHT }}</td>
-                <td>{{ entity.prixTotalHT }}</td>
-                <td>{{ entity.recetteTotaleHT }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('factures_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('factures_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block aeplatform_body %}
 
-        <ul>
-        <li>
-            <a href="{{ path('factures_new') }}">
+    <div class="row col-lg-12 col-md-12 jumbotron">
+        <ul class="pull-right" style="margin-bottom: 30px; margin-top: -20px;">
+            <a class="btn btn-default" href="{{ path('factures') }}">
                 Create a new entry
             </a>
-        </li>
-    </ul>
-    {% endblock %}
+        </ul>
+        <table class="records_list table table-responsive text-center">
+            <thead>
+            <tr>
+                <th>Numéro de facture</th>
+                <th>Nom du client</th>
+                <th>Date</th>
+                <th>Quantité</th>
+                <th>Produit</th>
+                <th>Prix unitaire HT</th>
+                <th>Total produit HT</th>
+                <th>Total facture HT</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('factures_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.contractuel.nomContractuel }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                    {% for produit in entity.factureProduit %}
+                        <td>{{ entity.factureProduit.quantite }}</td>
+                        <td>{{ entity.factureProduit.produits.designation }}</td>
+                        <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
+                    {% endfor %}
+
+                    <td>{{ entity.prixTotalHT }}</td>
+                    <td>{{ entity.recetteTotaleHT }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('factures_show', { 'id': entity.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('factures_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 jumbotron">
+        <h3 style="margin-top: -10px; margin-bottom: 30px;">Create a new entry</h3>
+        {#% include("AEComptaBundle:Achats:new.html.twig") %#}
+        {% form_theme form '::Form/field.php.twig' %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block script %}
+    {{ parent() }}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    {# Script d'ajout de produits : #}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+            var $container = $('div#ae_comptabundle_factures_factureProduit');
+
+            // On ajoute un lien pour ajouter une nouvelle catégorie
+            var $addLink = $('<a href="#" id="add_produit" class="btn btn-default">Ajouter un produit</a>');
+
+            $container.append($addLink);
+
+            // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+            $addLink.click(function(e) {
+
+                addProduit($container);
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+
+            });
+
+            // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+            var index = $container.find(':input').length;
+
+            // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+            if (index == 0) {
+
+                addProduit($container);
+
+            } else {
+
+                // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
+                $container.children('div').each(function() {
+                    addDeleteLink($(this));
+                });
+
+            }
+
+            // La fonction qui ajoute un formulaire Categorie
+            function addProduit($container) {
+
+                // Dans le contenu de l'attribut « data-prototype », on remplace :
+                // - le texte "__name__label__" qu'il contient par le label du champ
+                // - le texte "__name__" qu'il contient par le numéro du champ
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Produit n°' + (index+1))
+                        .replace(/__name__/g, index));
+
+                // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+                addDeleteLink($prototype);
+
+                // On ajoute le prototype modifié à la fin de la balise <div>
+                $container.append($prototype);
+
+                // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+                index++;
+
+            }
+
+            // La fonction qui ajoute un lien de suppression d'une catégorie
+            function addDeleteLink($prototype) {
+
+                // Création du lien
+                $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+                // Ajout du lien
+                $prototype.append($deleteLink);
+
+                // Ajout du listener sur le clic du lien
+                $deleteLink.click(function(e) {
+
+                    $prototype.remove();
+                    e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                    return false;
+
+                });
+            }
+        });
+
+    </script>
+
+{% endblock %}

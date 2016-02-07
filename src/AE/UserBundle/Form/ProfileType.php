@@ -18,8 +18,9 @@ class ProfileType extends AbstractType {
         $builder
             ->add('nom', 'text')
             ->add('prenom', 'text')
-            ->add('siretId', 'number')
-            ->add('nafId', 'text')
+            ->add('adresse', 'textarea')
+            ->add('code_postal', 'number')
+            ->add('telephone', 'number')
         ;
     }
 

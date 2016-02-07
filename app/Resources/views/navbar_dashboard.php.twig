@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
                 {#<li><a href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a></li>#}
-                <li><a href="{{ path('entreprise_user') }}">Mon entreprise</a></li>
+                <li><a href="{{ path('show_entreprise_user') }}">Mon entreprise</a></li>
                 <li><a href="#">Aide</a></li>
                 <li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

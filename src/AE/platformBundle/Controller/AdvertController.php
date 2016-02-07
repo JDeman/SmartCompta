@@ -18,7 +18,7 @@ class AdvertController extends Controller
         return $this->render('AEplatformBundle:Advert:faq.php.twig');
     }
 
-    public function newEntrepriseAction(Request $request)
+    /*public function newEntrepriseAction(Request $request)
     {
 
         $entreprise = new Entreprise();
@@ -41,7 +41,8 @@ class AdvertController extends Controller
         return $this->render('AEUserBundle:Entreprise:entreprise.html.twig', array(
             'form' => $form->createView(),
         ));
-    }
+    }*/
+
 }
 
 ?>
