@@ -6,31 +6,20 @@
 #}
 
 {% block header %}
-    <header class="intro-header" style="background-image: url({{asset('img/logo_fond_marron_grand.jpg')}})">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Mon compte</h1>
-                        <hr class="small">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="invisible" style="padding: 10px">
+        <span>a</span>
+    </div>
 {% endblock %}
 
 {% block fos_user_content %}
 <div class="col-lg-11 col-md-11">
     <div class="row jumbotron">
         {% include "FOSUserBundle:Profile:show_content.html.twig" %}
-        <a style="margin-left: 110px" class="btn btn-default" href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a>
-    </div>
-    <div class="row jumbotron">
-        <a style="margin-left: 110px" class="btn btn-default" href="{{ path('fos_user_change_password') }}">Changer mon mot de passe</a>
-    </div>
-    <div class="row jumbotron">
-        <a style="margin-left: 110px" class="btn btn-default" href="#">Suprimer mon compte</a>
+        <ul class="list-unstyled" style="margin-left: 30px">
+        <li><a class="btn btn-default" href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a></li>
+        <li style="margin-top: 10px"><a class="btn btn-default" href="{{ path('fos_user_change_password') }}">Changer mon mot de passe</a></li>
+        <li style="margin-top: 10px"><a class="btn btn-default" href="#">Suprimer mon compte</a></li>
+        </ul>
     </div>
 </div>
 {% endblock fos_user_content %}
