@@ -1,6 +1,9 @@
 {% extends "::layout.php.twig" %}
 {% form_theme form '::Form/field.php.twig' %}
 
+{% block title %}
+    Inscription
+{% endblock %}
 
 {% block fos_user_content %}
     {% include "FOSUserBundle:Registration:register_content.html.twig" %}

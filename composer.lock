@@ -775,6 +775,7 @@
                 "User management"
             ],
             "time": "2016-02-05 08:53:49"
+
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1221,6 +1222,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
                 "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
+
                 "shasum": ""
             },
             "require": {
@@ -1256,6 +1258,7 @@
                 "random"
             ],
             "time": "2016-02-06 03:52:05"
+
         },
         {
             "name": "psr/log",

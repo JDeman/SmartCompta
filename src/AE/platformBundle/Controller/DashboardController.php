@@ -10,7 +10,10 @@ class DashboardController extends Controller
 {
     public function dashboardAction()
     {
-        return $this->render('AEplatformBundle:Dashboard:dashboard.php.twig');
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $chiffreAffaire = $user->getEntreprise()->getChiffreDAffaireMensuel();
+
+        return $this->render('AEplatformBundle:Dashboard:dashboard.php.twig', array('chiffreAffaire' => $chiffreAffaire));
     }
 
 }
