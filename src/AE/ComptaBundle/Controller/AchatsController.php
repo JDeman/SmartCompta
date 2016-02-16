@@ -25,6 +25,11 @@ class AchatsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entreprise = $this->container->get('security.context')->getToken()->getUser()->getEntreprise();
+
+        if (!$entreprise) {
+            return $this->redirectToRoute('new_entreprise_user', array(), 301);
+        }
+
         $entreprise_id = $entreprise->getId();
 
         $entities = $em->getRepository('AEComptaBundle:Achats')->findByEntreprise($entreprise_id);
