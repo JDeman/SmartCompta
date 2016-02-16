@@ -67,4 +67,5 @@ class EntrepriseController extends Controller
         }
 
     }
+
 }
