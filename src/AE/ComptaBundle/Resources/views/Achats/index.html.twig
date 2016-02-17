@@ -11,7 +11,7 @@
     <div class="row col-lg-12 col-md-12 jumbotron">
         <ul class="pull-right" style="margin-bottom: 30px; margin-top: -20px;">
             <a class="btn btn-default" href="{{ path('achats') }}">
-                Create a new entry
+                Nouvel Achat
             </a>
         </ul>
         <table class="records_list table table-responsive text-center">
@@ -21,7 +21,7 @@
                     <th>Date</th>
                     <th>Montant</th>
                     <th>Fournisseur</th>
-                    <th>Modedepaiement</th>
+                    <th>Mode de paiement</th>
                     <th>Justificatif</th>
                     <th>Actions</th>
                 </tr>
@@ -38,10 +38,10 @@
                     <td>
                     <ul>
                         <li>
-                            <a href="{{ path('achats_show', { 'id': entity.id }) }}">show</a>
+                            <a href="{{ path('achats_show', { 'id': entity.id }) }}">aperçu</a>
                         </li>
                         <li>
-                            <a href="{{ path('achats_edit', { 'id': entity.id }) }}">edit</a>
+                            <a href="{{ path('achats_edit', { 'id': entity.id }) }}">édition</a>
                         </li>
                     </ul>
                     </td>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row col-lg-12 col-md-12 jumbotron">
-        <h3 style="margin-top: -10px; margin-bottom: 30px;">Create a new entry</h3>
+        <h3 style="margin-top: -10px; margin-bottom: 30px;">Créer un nouvel achat</h3>
         {#% include("AEComptaBundle:Achats:new.html.twig") %#}
         {% form_theme form '::Form/field.php.twig' %}
 
