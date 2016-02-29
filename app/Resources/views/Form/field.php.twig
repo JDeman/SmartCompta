@@ -36,6 +36,21 @@
     {{ parent() }}
 {%- endblock button_widget -%}
 
+{%- block file_widget -%}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' btn btn-default')|trim}) %}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+            '%name%': name,
+            '%id%': id,
+            }) %}
+        {%- else -%}
+            {% set label = "Choisir le fichier" %}
+        {%- endif -%}
+    {%- endif -%}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{%- endblock file_widget -%}
+
 {# et enfin les erreurs #}
 {% block form_errors %}
     {% spaceless %}
