@@ -18,14 +18,16 @@ file that was distributed with this source code.
 {% block title %}{{ 'mremi_contact.form_page_title'|trans }}{% endblock %}
 
 {% block body %}
-    {{ form_start(form, {'action': path('mremi_contact_form')}) }}
-    <fieldset>
-        <div class="row">
-            <div class="row col-lg-4 col-md-4 col-xs-6 control-label" style="margin-left: 10px;">
-                <legend>{{ 'mremi_contact.form_title'|trans }}</legend>
+    <div style="padding-top: 100px">
+        {{ form_start(form, {'action': path('mremi_contact_form')}) }}
+        <fieldset>
+            <div class="row">
+                <div class="row col-lg-4 col-md-4 col-xs-6 control-label" style="margin-left: 10px;">
+                    <legend>{{ 'mremi_contact.form_title'|trans }}</legend>
+                </div>
             </div>
-        </div>
-        {{ form_widget(form) }}
-    </fieldset>
-    {{ form_end(form) }}
+            {{ form_widget(form) }}
+        </fieldset>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
