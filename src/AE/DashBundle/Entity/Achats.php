@@ -23,7 +23,7 @@ class Achats
 
     /**
      * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $entreprise;

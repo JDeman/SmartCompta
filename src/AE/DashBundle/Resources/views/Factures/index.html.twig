@@ -20,10 +20,6 @@
                 <th>Numéro de facture</th>
                 <th>Nom du client</th>
                 <th>Date</th>
-                <th>Quantité</th>
-                <th>Produit</th>
-                <th>Prix unitaire HT</th>
-                <th>Total produit HT</th>
                 <th>Total facture HT</th>
                 <th>Actions</th>
             </tr>
@@ -33,23 +29,15 @@
                 <tr>
                     <td><a href="{{ path('factures_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                     <td>{{ entity.contractuel.nomContractuel }}</td>
-                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-
-                    {% for produit in entity.factureProduit %}
-                        <td>{{ entity.factureProduit.quantite }}</td>
-                        <td>{{ entity.factureProduit.produits.designation }}</td>
-                        <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
-                    {% endfor %}
-
-                    <td>{{ entity.prixTotalHT }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
                     <td>{{ entity.recetteTotaleHT }}</td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('factures_show', { 'id': entity.id }) }}">aperçu</a>
+                                <a href="{{ path('factures_show', { 'id': entity.id }) }}">Aperçu</a>
                             </li>
                             <li>
-                                <a href="{{ path('factures_edit', { 'id': entity.id }) }}">édition</a>
+                                <a href="{{ path('factures_edit', { 'id': entity.id }) }}">Editer</a>
                             </li>
                         </ul>
                     </td>

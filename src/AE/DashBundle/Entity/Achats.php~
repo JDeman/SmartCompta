@@ -1,6 +1,6 @@
 <?php
 
-namespace AE\ComptaBundle\Entity;
+namespace AE\DashBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -22,7 +22,7 @@ class Achats
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
+     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise", inversedBy="achats")
      * @ORM\JoinColumn(nullable=false)
      */
 
@@ -197,4 +197,27 @@ class Achats
         $this->file = $file;
     }
 
+
+    /**
+     * Set entreprise
+     *
+     * @param \AE\platformBundle\Entity\Entreprise $entreprise
+     * @return Achats
+     */
+    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \AE\platformBundle\Entity\Entreprise 
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
 }

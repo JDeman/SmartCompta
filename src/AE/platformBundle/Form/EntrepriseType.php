@@ -20,9 +20,10 @@ class EntrepriseType extends AbstractType
         $builder
             ->add('activite', 'choice', array(
                 'choices' => array(
-                    'PrestationDeService' => 'Prestation de service',
-                    'VenteDeMarchandise' => 'Vente de marchandise',
-                    'lesDeux' => 'Les deux',
+                    'PrestationDeService' => 'Prestation de service (commerciales ou artisanales, RSI-BIC)',
+                    'VenteDeMarchandise' => 'Vente de marchandises (RSI-BIC)',
+                    'AutresPrestationsDeService' => 'Autres prestations de service (RSI-BNC)',
+                    'ActiviteLiberale' => 'Activité libérale (CIPAV-BNC)',
                 ),
                 'expanded' => true
             ))
@@ -68,7 +69,7 @@ class EntrepriseType extends AbstractType
             ->add('naf_id', 'text', array('label'  => 'Code NAF/APE'))
             ->add('ville_rcs', 'text', array('label'  => 'Ville immatriculation au RCS'))
             ->add('chiffre_d_affaire_mensuel', 'money', array('label'  => 'Chiffre affaire mensuel'))
-            ->add('enregistrer', 'submit', array('label'  => 'Enregistrer'))
+            //->add('enregistrer', 'submit', array('label'  => 'Enregistrer'))
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
