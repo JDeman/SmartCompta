@@ -1,5 +1,5 @@
-ae_compta:
-    resource: "@AEComptaBundle/Resources/config/routing.yml"
+ae_dash:
+    resource: "@AEDashBundle/Resources/config/routing.yml"
     prefix:   /
 
 ae_user:

@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new AE\UserBundle\AEUserBundle(),
             new Mremi\ContactBundle\MremiContactBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new AE\ComptaBundle\AEComptaBundle(),
+            new AE\DashBundle\AEDashBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

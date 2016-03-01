@@ -1,0 +1,15 @@
+ae_dash_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AEDashBundle:Default:index }
+
+ae_dash_recettes:
+    resource: "@AEDashBundle/Resources/config/routing/recettes.yml"
+    prefix:   /recettes
+
+ae_dash_achats:
+    resource: "@AEDashBundle/Resources/config/routing/achats.yml"
+    prefix:   /achats
+
+ae_dash_factures:
+    resource: "@AEDashBundle/Resources/config/routing/factures.yml"
+    prefix:   /factures

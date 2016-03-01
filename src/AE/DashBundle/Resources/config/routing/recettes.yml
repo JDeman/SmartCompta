@@ -1,0 +1,30 @@
+recettes:
+    path:     /
+    defaults: { _controller: "AEDashBundle:Recettes:index" }
+
+recettes_show:
+    path:     /{id}/show
+    defaults: { _controller: "AEDashBundle:Recettes:show" }
+
+recettes_new:
+    path:     /new
+    defaults: { _controller: "AEDashBundle:Recettes:new" }
+
+recettes_create:
+    path:     /create
+    defaults: { _controller: "AEDashBundle:Recettes:create" }
+    methods:  POST
+
+recettes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AEDashBundle:Recettes:edit" }
+
+recettes_update:
+    path:     /{id}/update
+    defaults: { _controller: "AEDashBundle:Recettes:update" }
+    methods:  [POST, PUT]
+
+recettes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AEDashBundle:Recettes:delete" }
+    methods:  [POST, DELETE]
