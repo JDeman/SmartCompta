@@ -25,7 +25,7 @@ class EntrepriseType extends AbstractType
                     'AutresPrestationsDeService' => 'Autres prestations de service (RSI-BNC)',
                     'ActiviteLiberale' => 'Activité libérale (CIPAV-BNC)',
                 ),
-                'expanded' => true
+                'expanded' => false
             ))
             ->add('secteur_d_activite', 'choice', array(
                 'choices' => array(
@@ -48,14 +48,9 @@ class EntrepriseType extends AbstractType
                 ),
                 'expanded' => true
             ))
+            ->add('liberatoire', 'checkbox')
             ->add('date_de_lancement', 'date', array('label'  => 'Date de début activité'))
-            ->add('accre', 'choice', array(
-                'choices' => array(
-                    'oui' => 'oui',
-                    'non' => 'non',
-                ),
-                'expanded' => true
-            ))
+            ->add('accre', 'checkbox')
             //->add('nom', 'text', array('label'  => 'Nom du dirigeant'))
             //->add('prenom', 'text', array('label'  => 'Prénom du dirigeant'))
             ->add('email_entreprise', 'email', array('label'  => 'E-mail'))

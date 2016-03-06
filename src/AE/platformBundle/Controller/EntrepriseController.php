@@ -98,7 +98,7 @@ class EntrepriseController extends Controller
         $entity = $em->getRepository('AEplatformBundle:Entreprise')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Entité Enteprise impossible à trouver.');
+            throw $this->createNotFoundException('Entité Enterprise impossible à trouver.');
         }
 
         $editForm = $this->createEditForm($entity);

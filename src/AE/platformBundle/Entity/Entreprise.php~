@@ -33,13 +33,6 @@ class Entreprise
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="AE\DashBundle\Entity\Achats", mappedBy="entreprise")
-     * @ORM\JoinColumn(nullable=false)
-     */
-
-    private $achats;
-
-    /**
      * @ORM\Column(type="string")
      * @Assert\Email()
      */
@@ -130,6 +123,12 @@ class Entreprise
      */
 
     private $declaration;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+
+    private $liberatoire;
 
     /**
      * @ORM\Column(type="string", length=255)

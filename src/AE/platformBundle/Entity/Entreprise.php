@@ -125,7 +125,13 @@ class Entreprise
     private $declaration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
+     */
+
+    private $liberatoire;
+
+    /**
+     * @ORM\Column(type="boolean")
      */
 
     private $accre;
@@ -489,5 +495,28 @@ class Entreprise
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set liberatoire
+     *
+     * @param boolean $liberatoire
+     * @return Entreprise
+     */
+    public function setLiberatoire($liberatoire)
+    {
+        $this->liberatoire = $liberatoire;
+
+        return $this;
+    }
+
+    /**
+     * Get liberatoire
+     *
+     * @return boolean 
+     */
+    public function getLiberatoire()
+    {
+        return $this->liberatoire;
     }
 }

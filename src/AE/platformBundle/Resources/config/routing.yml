@@ -23,7 +23,7 @@ show_entreprise_user:
     defaults: {_controller: AEplatformBundle:Entreprise:showEntreprise}
 
 edit_entreprise_user:
-    path:     /{id}/edit
+    path:     /mon-entreprise/{id}/edit
     defaults: { _controller: AEplatformBundle:Entreprise:editEntreprise }
 
 update_entreprise_user:

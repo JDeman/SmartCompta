@@ -29,11 +29,12 @@
             {{ form_row(form.current_password) }}
             {{ form_widget(form.current_password) }}
 
-            {{ form_end(form) }}
+            {#{ form_end(form) }#}
 
             <div>
                 <input type="submit" class="btn btn-default col-lg-offset-9 col-md-offset-9 col-xs-offset-8" value="{{ 'profile.edit.submit'|trans }}" />
             </div>
+            {{ form_end(form) }}
         </div>
     </div>
 </div>
