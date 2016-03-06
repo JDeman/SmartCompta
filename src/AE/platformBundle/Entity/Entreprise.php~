@@ -27,10 +27,17 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $user;
+
+    /**
+     * @ORM\OnetoOne(targetEntity="AE\ComptaBundle\Entity\ImpotsMensuels", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     */
+
+    private $impotsMensuels;
 
     /**
      * @ORM\Column(type="string")
@@ -131,7 +138,7 @@ class Entreprise
     private $liberatoire;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
      */
 
     private $accre;
@@ -495,5 +502,28 @@ class Entreprise
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set liberatoire
+     *
+     * @param boolean $liberatoire
+     * @return Entreprise
+     */
+    public function setLiberatoire($liberatoire)
+    {
+        $this->liberatoire = $liberatoire;
+
+        return $this;
+    }
+
+    /**
+     * Get liberatoire
+     *
+     * @return boolean 
+     */
+    public function getLiberatoire()
+    {
+        return $this->liberatoire;
     }
 }

@@ -27,7 +27,7 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
 
     private $user;
@@ -519,4 +519,5 @@ class Entreprise
     {
         return $this->liberatoire;
     }
+
 }

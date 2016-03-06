@@ -13,18 +13,19 @@ class DashboardController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $entreprise = $user->getEntreprise();
 
-        $em = $this->getDoctrine()->getManager();
-        $impotsMensuels = $em->getRepository('AEComptaBundle:ImpotsMensuels')->find(1);
+        $entreprise_id = $entreprise->getId();
 
-        if($entreprise) {
-            $chiffreAffaire = $user->getEntreprise()->getChiffreDAffaireMensuel();
+        $em = $this->getDoctrine()->getManager();
+        $impotsMensuels = $em->getRepository('AEComptaBundle:ImpotsMensuels')->findOneByEntreprise($entreprise_id);
+
+        if($entreprise && $impotsMensuels) {
+
+            $chiffreAffaire = $entreprise->getChiffreDAffaireMensuel();
+            $tauxGlobal = $impotsMensuels->getTauxGlobal();
+            $montantImposable = $this->calculMontantImposableAction($chiffreAffaire, $tauxGlobal);
+
         } else {
             $chiffreAffaire = 0;
-        }
-
-        if ($impotsMensuels) {
-            $montantImposable = $impotsMensuels->getImpotTotal();
-        } else {
             $montantImposable = 0;
         }
 
@@ -33,6 +34,14 @@ class DashboardController extends Controller
                 'chiffreAffaire' => $chiffreAffaire,
                 'montantImposable' => $montantImposable,
                 ));
+    }
+
+    public function calculMontantImposableAction ($chiffreAffaire, $tauxGlobal)
+    {
+
+        $montantImposable = $chiffreAffaire * $tauxGlobal;
+
+        return $montantImposable;
     }
 
 }

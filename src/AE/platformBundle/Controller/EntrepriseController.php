@@ -31,7 +31,7 @@ class EntrepriseController extends Controller
             $em->persist($entreprise);
             $em->flush();
 
-            return $this->redirectToRoute('dashboard_user');
+            return $this->redirectToRoute('ae_compta_simulation_save');
 
         }
 

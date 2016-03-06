@@ -22,6 +22,7 @@ class User extends BaseUser
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $entreprise;

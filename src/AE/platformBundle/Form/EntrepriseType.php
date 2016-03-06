@@ -48,9 +48,13 @@ class EntrepriseType extends AbstractType
                 ),
                 'expanded' => true
             ))
-            ->add('liberatoire', 'checkbox')
+            ->add('liberatoire', 'checkbox', array(
+                'required' => false
+            ))
             ->add('date_de_lancement', 'date', array('label'  => 'Date de début activité'))
-            ->add('accre', 'checkbox')
+            ->add('accre', 'checkbox', array(
+                'required' => false
+            ))
             //->add('nom', 'text', array('label'  => 'Nom du dirigeant'))
             //->add('prenom', 'text', array('label'  => 'Prénom du dirigeant'))
             ->add('email_entreprise', 'email', array('label'  => 'E-mail'))
