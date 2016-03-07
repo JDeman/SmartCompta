@@ -31,7 +31,7 @@
                 <tr>
                     {#<td><a href="{{ path('recettes_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
                     <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
-                    <td>{{ entity.montant }}</td>
+                    <td>{{ entity.montant }} €</td>
                     <td>{{ entity.client }}</td>
                     <td>{{ entity.modeDePaiement }}</td>
                     <td>{{ entity.justificatif }}</td>

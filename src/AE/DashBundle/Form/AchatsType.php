@@ -23,7 +23,10 @@ class AchatsType extends AbstractType
                     'CarteBancaire'   => 'Carte bancaire',
                     'Cheque' => 'Chèques',
                     'Especes'   => 'Espèces',
-                )
+                ),'choices_as_values' => true,
+                'choice_label' => function ($value, $key, $index) {
+                    return $value;
+                },
             ))
             ->add('justificatif', 'file')
         ;

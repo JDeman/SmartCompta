@@ -16,22 +16,22 @@ class SimulationController extends Controller
         /* Conditions */
         switch ($activite)
         {
-            case "PrestationDeService";
+            case "Prestation de service (commerciales ou artisanales, RSI-BIC)";
                 $impotRevenu = 1.7/100;
                 return $impotRevenu;
                 break;
 
-            case "VenteDeMarchandise";
+            case "Vente de marchandises (RSI-BIC)";
                 $impotRevenu = 1/100;
                 return $impotRevenu;
                 break;
 
-            case "AutresPrestationsDeService";
+            case "Autres prestations de service (RSI-BNC)";
                 $impotRevenu = 2.2/100;
                 return $impotRevenu;
                 break;
 
-            case "ActiviteLiberale";
+            case "Activité libérale (CIPAV-BNC)";
                 $impotRevenu = 2.2/100;
                 return $impotRevenu;
                 break;
@@ -48,22 +48,22 @@ class SimulationController extends Controller
         /* Conditions */
         switch ($activite)
         {
-            case "PrestationDeService";
+            case "Prestation de service (commerciales ou artisanales, RSI-BIC)";
                 $formationPro = 0.3/100;
                 return $formationPro;
                 break;
 
-            case "VenteDeMarchandise";
+            case "Vente de marchandises (RSI-BIC)";
                 $formationPro = 0.1/100;
                 return $formationPro;
                 break;
 
-            case "AutresPrestationsDeService";
+            case "Autres prestations de service (RSI-BNC)";
                 $formationPro = 0.2/100;
                 return $formationPro;
                 break;
 
-            case "ActiviteLiberale";
+            case "Activité libérale (CIPAV-BNC)";
                 $formationPro = 0.2/100;
                 return $formationPro;
                 break;
@@ -82,7 +82,7 @@ class SimulationController extends Controller
         /* Conditions */
         switch ($activite) {
 
-            case "PrestationDeService";
+            case "Prestation de service (commerciales ou artisanales, RSI-BIC)";
                 switch ($accre)
                 {
                     case 0;
@@ -97,7 +97,7 @@ class SimulationController extends Controller
                 }
                 break;
 
-            case "VenteDeMarchandise";
+            case "Vente de marchandises (RSI-BIC)";
                 switch ($accre)
                 {
                     case 0;
@@ -112,7 +112,7 @@ class SimulationController extends Controller
                 }
                 break;
 
-            case "AutresPrestationsDeService";
+            case "Autres prestations de service (RSI-BNC)";
                 switch ($accre)
                 {
                     case 0;
@@ -127,7 +127,7 @@ class SimulationController extends Controller
                 }
                 break;
 
-            case "ActiviteLiberale";
+            case "Activité libérale (CIPAV-BNC)";
                 switch ($accre)
                 {
                     case 0;

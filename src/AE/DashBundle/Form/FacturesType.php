@@ -23,8 +23,8 @@ class FacturesType extends AbstractType
                 'allow_delete' => true
 
             ))
-            ->add('prixTotalHT')
-            ->add('recetteTotaleHT')
+            ->add('prixTotalHT', 'text', array('label' => 'Prix Total HT'))
+            ->add('recetteTotaleHT', 'text', array('label' => 'Recette Totale HT'))
         ;
     }
 

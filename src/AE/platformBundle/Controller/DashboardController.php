@@ -14,6 +14,7 @@ class DashboardController extends Controller
         $entreprise = $user->getEntreprise();
 
         $entreprise_id = $entreprise->getId();
+        $liberatoire = $entreprise->getLiberatoire();
 
         $em = $this->getDoctrine()->getManager();
         $impotsMensuels = $em->getRepository('AEComptaBundle:ImpotsMensuels')->findOneByEntreprise($entreprise_id);
@@ -49,7 +50,8 @@ class DashboardController extends Controller
                 'montantImposable' => $montantImposable,
                 'montantImpotSurRevenu' => $montantImpotRevenu,
                 'montantImpotFormationPro' => $montantImpotFormationPro,
-                'montantCotisationsSoc' => $montantCotisationsSoc
+                'montantCotisationsSoc' => $montantCotisationsSoc,
+                'liberatoire' => $liberatoire
                 ));
     }
 
