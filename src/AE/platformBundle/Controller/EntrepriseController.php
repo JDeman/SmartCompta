@@ -35,7 +35,6 @@ class EntrepriseController extends Controller
 
         }
 
-
         return $this->render('AEplatformBundle:Entreprise:new.html.twig', array(
             'form' => $form->createView(),
         ));

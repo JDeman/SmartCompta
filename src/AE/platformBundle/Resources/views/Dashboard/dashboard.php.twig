@@ -28,12 +28,18 @@
 		</p>
 	</div>
 	<div class="jumbotron">
-		<p style="margin-left: 20px;" class="glyphicon"> Montant imposable : {{ montantImposable }}
+		<p style="margin-left: 20px;" class="glyphicon"> Montant impôsable : {{ montantImposable }}
 			<span class="glyphicon glyphicon-euro"></span>
+			<br> dont {{ montantCotisationsSoc }} <span class="glyphicon glyphicon-euro"></span>
+			<br> dont {{ montantImpotFormationPro }} d'impôt sur la formation professionnelle<span class="glyphicon glyphicon-euro"></span>
+			<br> et {{ montantImpotSurRevenu }} d'impôts sur le revenu <span class="glyphicon glyphicon-euro"></span>
 		</p>
 	</div>
 </div>
 {% endblock %}
+
+{# INSTRUCTIONS POUR OLIVIER: SI DANS L'ENTITE Entreprise LA VALEUR DE liberatoire EST A 1,
+LE MONTANT IMPOSABLE EST COTISATIONS SOC+IMPOT FORMATION PRO ET L'IMPOT SUR LE REVENU EST SEPARE, SINON, TOUT EST PAYE EN MEME TEMPS #}
 
 {% block aeplatform_script %}
 <script>
