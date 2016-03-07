@@ -16,9 +16,11 @@ class EntrepriseController extends Controller
     {
 
         $user = $this->container->get('security.context')->getToken()->getUser();
+        $date = new DateTime();
 
         $entreprise = new Entreprise();
         $entreprise->setUser($user);
+        $entreprise->setDateDeCreation($date);
 
         $form = $this->createCreateForm($entreprise);
 

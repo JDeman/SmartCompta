@@ -26,13 +26,19 @@
 		<p style="margin-left: 20px;" class="glyphicon"> Chiffre d'affaire actuel : {{ chiffreAffaire }}
 			<span class="glyphicon glyphicon-euro"></span>
 		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> Déclarez votre chiffre d'affaire
+		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> La date limite est le {#{  }#}
+		</p>
 	</div>
 	<div class="jumbotron">
-		<p style="margin-left: 20px;" class="glyphicon"> Montant impôsable : {{ montantImposable }}
+		<p style="margin-left: 20px;" class="glyphicon"> Montant imposable : {{ montantImposable }}
 			<span class="glyphicon glyphicon-euro"></span>
-			<br> dont {{ montantCotisationsSoc }} <span class="glyphicon glyphicon-euro"></span>
-			<br> dont {{ montantImpotFormationPro }} d'impôt sur la formation professionnelle<span class="glyphicon glyphicon-euro"></span>
-			<br> et {{ montantImpotSurRevenu }} d'impôts sur le revenu <span class="glyphicon glyphicon-euro"></span>
+			<br> dont {{ montantCotisationsSoc }} <span class="glyphicon glyphicon-euro"></span> de côtisations sociales
+			<br> dont {{ montantImpotFormationPro }} <span class="glyphicon glyphicon-euro"></span> d'impôt sur la formation professionnelle
+			<br> et {{ montantImpotSurRevenu }} <span class="glyphicon glyphicon-euro"></span> d'impôts sur le revenu
 		</p>
 	</div>
 </div>

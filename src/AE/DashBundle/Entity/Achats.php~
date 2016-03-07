@@ -22,8 +22,8 @@ class Achats
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise", inversedBy="achats")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $entreprise;
@@ -55,6 +55,10 @@ class Achats
 
     private $date;
 
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Téléchargez un justificatif.")
+     */
 
     private $justificatif;
 
@@ -160,43 +164,6 @@ class Achats
     {
         return $this->modeDePaiement;
     }
-
-    /**
-     * Set justificatif
-     *
-     * @param string $justificatif
-     * @return Recettes
-     */
-    public function setJustificatif($justificatif)
-    {
-        $this->justificatif = $justificatif;
-
-        return $this;
-    }
-
-    /**
-     * Get justificatif
-     *
-     * @return string
-     */
-    public function getJustificatif()
-    {
-        return $this->justificatif;
-    }
-
-    public function getFile()
-
-    {
-        return $this->file;
-    }
-
-
-    public function setFile(UploadedFile $file = null)
-
-    {
-        $this->file = $file;
-    }
-
 
     /**
      * Set entreprise

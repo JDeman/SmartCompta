@@ -56,7 +56,13 @@ class Recettes
     private $date;
 
 
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Téléchargez un justificatif.")
+     */
+
     private $justificatif;
+
 
 
     /**
@@ -152,53 +158,6 @@ class Recettes
     }
 
     /**
-     * Get modeDePaiement
-     *
-     * @return string
-     */
-    public function getModeDePaiement()
-    {
-        return $this->modeDePaiement;
-    }
-
-    /**
-     * Set justificatif
-     *
-     * @param string $justificatif
-     * @return Recettes
-     */
-    public function setJustificatif($justificatif)
-    {
-        $this->justificatif = $justificatif;
-
-        return $this;
-    }
-
-    /**
-     * Get justificatif
-     *
-     * @return string
-     */
-    public function getJustificatif()
-    {
-        return $this->justificatif;
-    }
-
-    public function getFile()
-
-    {
-        return $this->file;
-    }
-
-
-    public function setFile(UploadedFile $file = null)
-
-    {
-        $this->file = $file;
-    }
-
-
-    /**
      * Set entreprise
      *
      * @param \AE\platformBundle\Entity\Entreprise $entreprise
@@ -219,5 +178,39 @@ class Recettes
     public function getEntreprise()
     {
         return $this->entreprise;
+    }
+
+    /**
+     * Get modeDePaiement
+     *
+     * @return string 
+     */
+    public function getModeDePaiement()
+    {
+        return $this->modeDePaiement;
+    }
+
+
+    /**
+     * Set justificatif
+     *
+     * @param string $justificatif
+     * @return Recettes
+     */
+    public function setJustificatif($justificatif)
+    {
+        $this->justificatif = $justificatif;
+
+        return $this;
+    }
+
+    /**
+     * Get justificatif
+     *
+     * @return string 
+     */
+    public function getJustificatif()
+    {
+        return $this->justificatif;
     }
 }
