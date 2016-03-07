@@ -78,7 +78,7 @@ class EntrepriseController extends Controller
             }
 
             return $this->render('AEplatformBundle:Entreprise:show.html.twig', array(
-                'entity'      => $entity,
+                'entity' => $entity,
             ));
 
         } else {

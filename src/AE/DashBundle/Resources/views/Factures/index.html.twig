@@ -10,7 +10,7 @@
 
     <div class="row col-lg-12 col-md-12 jumbotron">
         <ul class="pull-right" style="margin-bottom: 30px; margin-top: -20px;">
-            <a class="btn btn-default" href="{{ path('factures') }}">
+            <a class="btn btn-default page-scroll" href="#new">
                 Nouvelle Facture
             </a>
         </ul>
@@ -30,7 +30,7 @@
                     <td><a href="{{ path('factures_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                     <td>{{ entity.contractuel.nomContractuel }}</td>
                     <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
-                    <td>{{ entity.recetteTotaleHT }}</td>
+                    <td>{{ entity.recetteTotaleHT }} €</td>
                     <td>
                         <ul>
                             <li>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="row col-lg-12 col-md-12 jumbotron">
-        <h3 style="margin-top: -10px; margin-bottom: 30px;">Créer une nouvelle facture</h3>
+        <h3 id="new" style="margin-top: -10px; margin-bottom: 30px;">Créer une nouvelle facture</h3>
         {#% include("AEComptaBundle:Achats:new.html.twig") %#}
         {% form_theme form '::Form/field.php.twig' %}
 
@@ -62,6 +62,8 @@
     {{ parent() }}
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ asset('bootstrap/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/scrolling.js') }}"></script>
 
     {# Script d'ajout de produits : #}
 

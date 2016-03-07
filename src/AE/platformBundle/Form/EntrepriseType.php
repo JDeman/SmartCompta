@@ -25,7 +25,23 @@ class EntrepriseType extends AbstractType
                     'AutresPrestationsDeService' => 'Autres prestations de service (RSI-BNC)',
                     'ActiviteLiberale' => 'Activité libérale (CIPAV-BNC)',
                 ),
-                'expanded' => false
+                'choices_as_values' => true,
+                'expanded' => false,
+                'choice_label' => function ($value, $key, $index) {
+                    if ($key == 'PrestationDeService') {
+                        return 'Prestation de service (commerciales ou artisanales, RSI-BIC)';
+                    }
+                    if ($value == 'Vente de marchandises (RSI-BIC)') {
+                        return 'Vente de marchandises (RSI-BIC)';
+                    }
+                    if ($value == 'Autres prestations de service (RSI-BNC)') {
+                        return 'Autres prestations de service (RSI-BNC)';
+                    }
+                    if ($value == 'Activité libérale (CIPAV-BNC)') {
+                        return 'Activité libérale (CIPAV-BNC)';
+                    }
+                    return strtoupper($key);
+                },
             ))
             ->add('secteur_d_activite', 'choice', array(
                 'choices' => array(
@@ -39,13 +55,48 @@ class EntrepriseType extends AbstractType
                     'Restauration'   => 'Restauration',
                     'Transport'   => 'Transport',
                     'Autres'   => 'Autres',
-                )
+                ),
+                'choices_as_values' => true,
+                'choice_label' => function ($value, $key, $index) {
+                    if ($key == 'Web&Informatique') {
+                        return 'Web et Informatique';
+                    }
+                    if ($key == 'Consulting&Service') {
+                        return 'Consulting et Services';
+                    }
+                    if ($key == 'Sante&BienEtre') {
+                        return 'Santé et Bien-Être';
+                    }
+                    if ($key == 'Commercant') {
+                        return 'Commerçant';
+                    }
+                    if ($key == 'ServiceALaPersonne') {
+                        return 'Service à la personne';
+                    }
+                    if ($key == 'BTP&Artisans') {
+                        return 'BTP et artisans';
+                    }
+                    if ($key == 'ArtPhotoMusique') {
+                        return 'Art, photo et musique';
+                    }
+                    if ($key == 'Restauration') {
+                        return 'Restauration';
+                    }
+                    if ($key == 'Transport') {
+                        return 'Transport';
+                    }
+                    if ($key == 'Autres') {
+                        return 'Autres';
+                    }
+                    return strtoupper($key);
+                },
             ))
             ->add('declaration', 'choice', array(
                 'choices' => array(
                     'mensuelles' => 'Mensuelles',
                     'trimestrielles' => 'Trimestrielles',
                 ),
+                'choices_as_values' => true,
                 'expanded' => true
             ))
             ->add('liberatoire', 'checkbox', array(

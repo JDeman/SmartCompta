@@ -10,7 +10,7 @@
 
     <div class="row col-lg-12 col-md-12 jumbotron">
         <ul class="pull-right" style="margin-bottom: 30px; margin-top: -20px;">
-            <a class="btn btn-default" href="{{ path('achats') }}">
+            <a class="btn btn-default page-scroll" href="#new">
                 Nouvel Achat
             </a>
         </ul>
@@ -30,8 +30,8 @@
             {% for entity in entities %}
                 <tr>
                     {#<td><a href="{{ path('achats_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
-                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    <td>{{ entity.montant }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ entity.montant }} €</td>
                     <td>{{ entity.fournisseur }}</td>
                     <td>{{ entity.modeDePaiement }}</td>
                     <td>{{ entity.justificatif }}</td>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row col-lg-12 col-md-12 jumbotron">
-        <h3 style="margin-top: -10px; margin-bottom: 30px;">Créer un nouvel achat</h3>
+        <h3 id="new" style="margin-top: -10px; margin-bottom: 30px;">Créer un nouvel achat</h3>
         {#% include("AEComptaBundle:Achats:new.html.twig") %#}
         {% form_theme form '::Form/field.php.twig' %}
 
@@ -60,4 +60,10 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
+{% endblock %}
+
+{% block script %}
+    {{ parent() }}
+    <script src="{{ asset('bootstrap/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/scrolling.js') }}"></script>
 {% endblock %}

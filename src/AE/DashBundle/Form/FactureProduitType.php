@@ -15,7 +15,7 @@ class FactureProduitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantite', 'number')
+            ->add('quantite', 'number', array('label' => 'Quantité'))
             ->add('produits', new ProduitsType())
         ;
     }
