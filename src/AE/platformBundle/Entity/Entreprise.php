@@ -27,7 +27,7 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
 
     private $user;
@@ -520,4 +520,27 @@ class Entreprise
         return $this->liberatoire;
     }
 
+
+    /**
+     * Set impotsMensuels
+     *
+     * @param \AE\ComptaBundle\Entity\ImpotsMensuels $impotsMensuels
+     * @return Entreprise
+     */
+    public function setImpotsMensuels(\AE\ComptaBundle\Entity\ImpotsMensuels $impotsMensuels = null)
+    {
+        $this->impotsMensuels = $impotsMensuels;
+
+        return $this;
+    }
+
+    /**
+     * Get impotsMensuels
+     *
+     * @return \AE\ComptaBundle\Entity\ImpotsMensuels 
+     */
+    public function getImpotsMensuels()
+    {
+        return $this->impotsMensuels;
+    }
 }

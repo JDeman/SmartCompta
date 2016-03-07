@@ -18,14 +18,17 @@ class DashboardController extends Controller
         $em = $this->getDoctrine()->getManager();
         $impotsMensuels = $em->getRepository('AEComptaBundle:ImpotsMensuels')->findOneByEntreprise($entreprise_id);
 
-        if($entreprise && $impotsMensuels) {
-
+        if($entreprise) {
             $chiffreAffaire = $entreprise->getChiffreDAffaireMensuel();
-            $tauxGlobal = $impotsMensuels->getTauxGlobal();
-            $montantImposable = $this->calculMontantImposableAction($chiffreAffaire, $tauxGlobal);
 
         } else {
             $chiffreAffaire = 0;
+        }
+
+        if ($impotsMensuels) {
+            $tauxGlobal = $impotsMensuels->getTauxGlobal();
+            $montantImposable = $this->calculMontantImposableAction($chiffreAffaire, $tauxGlobal);
+        } else {
             $montantImposable = 0;
         }
 
@@ -38,9 +41,7 @@ class DashboardController extends Controller
 
     public function calculMontantImposableAction ($chiffreAffaire, $tauxGlobal)
     {
-
         $montantImposable = $chiffreAffaire * $tauxGlobal;
-
         return $montantImposable;
     }
 

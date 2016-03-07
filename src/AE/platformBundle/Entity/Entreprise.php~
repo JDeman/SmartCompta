@@ -27,14 +27,14 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=true)
      */
 
     private $user;
 
     /**
-     * @ORM\OnetoOne(targetEntity="AE\ComptaBundle\Entity\ImpotsMensuels", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\OnetoOne(targetEntity="AE\ComptaBundle\Entity\ImpotsMensuels")
+     * @ORM\JoinColumn(nullable=true)
      */
 
     private $impotsMensuels;
@@ -526,4 +526,5 @@ class Entreprise
     {
         return $this->liberatoire;
     }
+
 }

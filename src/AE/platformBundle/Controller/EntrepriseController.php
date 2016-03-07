@@ -88,7 +88,7 @@ class EntrepriseController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Enteprise entity.
+     * Displays a form to edit an existing Entreprise entity.
      *
      */
     public function editEntrepriseAction($id)
@@ -98,7 +98,7 @@ class EntrepriseController extends Controller
         $entity = $em->getRepository('AEplatformBundle:Entreprise')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Entité Enterprise impossible à trouver.');
+            throw $this->createNotFoundException('Entité Entreprise impossible à trouver.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -112,7 +112,7 @@ class EntrepriseController extends Controller
     }
 
     /**
-     * Creates a form to edit a Factures entity.
+     * Creates a form to edit a Entreprise entity.
      *
      * @param Entreprise $entity The entity
      *
@@ -151,7 +151,7 @@ class EntrepriseController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('edit_entreprise_user', array('id' => $id)));
+            return $this->redirectToRoute('ae_compta_simulation_update');
         }
 
         return $this->render('AEplatformBundle:Enteprise:edit.html.twig', array(

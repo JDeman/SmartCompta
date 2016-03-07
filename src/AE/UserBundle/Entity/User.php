@@ -21,7 +21,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise")
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 

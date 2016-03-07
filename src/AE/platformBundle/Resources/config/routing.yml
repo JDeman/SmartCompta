@@ -27,11 +27,11 @@ edit_entreprise_user:
     defaults: { _controller: AEplatformBundle:Entreprise:editEntreprise }
 
 update_entreprise_user:
-    path:     /{id}/update
+    path:     /mon-entreprise/{id}/update
     defaults: { _controller: AEplatformBundle:Entreprise:update }
     methods:  [POST, PUT]
 
 delete_entreprise_user:
-    path:     /{id}/delete
+    path:     /mon-enteprise/{id}/delete
     defaults: { _controller: AEplatformBundle:Entreprise:delete }
     methods:  [POST, DELETE]
