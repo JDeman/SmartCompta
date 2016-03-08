@@ -17,6 +17,10 @@ class FactureProduitType extends AbstractType
         $builder
             ->add('quantite', 'number', array('label' => 'Quantité'))
             ->add('produits', new ProduitsType())
+            /*->add('prixTotalHT', 'text', array(
+                'label' => 'Prix Total HT',
+                'required' => false
+            ))*/
         ;
     }
     

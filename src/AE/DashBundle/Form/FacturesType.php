@@ -21,10 +21,11 @@ class FacturesType extends AbstractType
                 'type' => new FactureProduitType(),
                 'allow_add' => true,
                 'allow_delete' => true
-
             ))
-            ->add('prixTotalHT', 'text', array('label' => 'Prix Total HT'))
-            ->add('recetteTotaleHT', 'text', array('label' => 'Recette Totale HT'))
+            /*->add('recetteTotaleHT', 'text', array(
+                'label' => 'Recette Totale HT',
+                'required' => false
+            ))*/
         ;
     }
 

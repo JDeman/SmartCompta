@@ -1,6 +1,6 @@
 <?php
 
-namespace AE\ComptaBundle\Entity;
+namespace AE\DashBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,17 +29,22 @@ class FactureProduit
     private $quantite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Factures")
+     * @ORM\ManyToOne(targetEntity="AE\DashBundle\Entity\Factures", cascade={"persist"})
      */
 
     private $factures;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AE\ComptaBundle\Entity\Produits")
+     * @ORM\ManyToOne(targetEntity="AE\DashBundle\Entity\Produits", cascade={"persist"})
      */
 
     private $produits;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+
+    private $prixTotalHT;
 
     /**
      * Get id
@@ -75,48 +80,48 @@ class FactureProduit
     }
 
     /**
-     * Set entreprise
+     * Set factures
      *
-     * @param \AE\platformBundle\Entity\Entreprise $entreprise
+     * @param \AE\DashBundle\Entity\Factures $factures
      * @return FactureProduit
      */
-    public function setEntreprise(\AE\platformBundle\Entity\Entreprise $entreprise)
+    public function setFactures(\AE\DashBundle\Entity\Factures $factures = null)
     {
-        $this->entreprise = $entreprise;
+        $this->factures = $factures;
 
         return $this;
     }
 
     /**
-     * Get entreprise
+     * Get factures
      *
-     * @return \AE\platformBundle\Entity\Entreprise 
+     * @return \AE\DashBundle\Entity\Factures
      */
-    public function getEntreprise()
+    public function getFactures()
     {
-        return $this->entreprise;
+        return $this->factures;
     }
 
     /**
-     * Set contractuel
+     * Set produits
      *
-     * @param \AE\ComptaBundle\Entity\Contractuels $contractuel
+     * @param \AE\DashBundle\Entity\Produits $produits
      * @return FactureProduit
      */
-    public function setContractuel(\AE\ComptaBundle\Entity\Contractuels $contractuel)
+    public function setProduits(\AE\DashBundle\Entity\Produits $produits = null)
     {
-        $this->contractuel = $contractuel;
+        $this->produits = $produits;
 
         return $this;
     }
 
     /**
-     * Get contractuel
+     * Get produits
      *
-     * @return \AE\ComptaBundle\Entity\Contractuels 
+     * @return \AE\DashBundle\Entity\Produits
      */
-    public function getContractuel()
+    public function getProduits()
     {
-        return $this->contractuel;
+        return $this->produits;
     }
 }

@@ -42,6 +42,20 @@ class FacturesController extends Controller
 
         if ($form->isValid()) {
 
+            $recetteTotale = 0;
+            $factureProduit = $entity->getFactureProduit();
+
+            foreach ($factureProduit as $element) {
+
+                $quantite = $element->getQuantite();
+                $prixUnitaire = $element->getProduits()->getPrixUnitaireHT();
+                $prixTotal = $quantite * $prixUnitaire;
+
+                $element->setPrixTotalHT($prixTotal);
+                $recetteTotale = $recetteTotale + $prixTotal;
+            }
+
+            $entity->setRecetteTotaleHT($recetteTotale);
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->persist($entity->getContractuel());

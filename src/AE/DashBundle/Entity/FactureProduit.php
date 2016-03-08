@@ -40,6 +40,11 @@ class FactureProduit
 
     private $produits;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+
+    private $prixTotalHT;
 
     /**
      * Get id
@@ -118,5 +123,28 @@ class FactureProduit
     public function getProduits()
     {
         return $this->produits;
+    }
+
+    /**
+     * Set prixTotalHT
+     *
+     * @param float $prixTotalHT
+     * @return FactureProduit
+     */
+    public function setPrixTotalHT($prixTotalHT)
+    {
+        $this->prixTotalHT = $prixTotalHT;
+
+        return $this;
+    }
+
+    /**
+     * Get prixTotalHT
+     *
+     * @return float 
+     */
+    public function getPrixTotalHT()
+    {
+        return $this->prixTotalHT;
     }
 }
