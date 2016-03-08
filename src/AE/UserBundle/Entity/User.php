@@ -22,7 +22,7 @@ class User extends BaseUser
 
     /**
 
-     * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise")
+     * @ORM\OneToOne(targetEntity="AE\platformBundle\Entity\Entreprise")
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
 
