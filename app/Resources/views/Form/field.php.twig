@@ -51,6 +51,11 @@
     <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
 {%- endblock file_widget -%#}
 
+{%- block file_widget -%}
+    {% set label = "Choisir le fichier" %}
+    <input type="file" class="">
+{%- endblock file_widget -%}
+
 {# et enfin les erreurs #}
 {% block form_errors %}
     {% spaceless %}
