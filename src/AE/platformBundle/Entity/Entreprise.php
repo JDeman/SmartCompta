@@ -27,7 +27,7 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $user;
