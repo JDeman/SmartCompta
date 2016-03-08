@@ -23,14 +23,33 @@
 {% block aeplatform_body %}
 <div class="col-lg-11 col-md-11">
 	<div class="jumbotron">
-		<p style="margin-left: 20px;" class="glyphicon glyphicon-euro"> Chiffre d'affaire actuel : {{ chiffreAffaire }}
+		<p style="margin-left: 20px;" class="glyphicon"> Chiffre d'affaire actuel : {{ chiffreAffaire }}
+			<span class="glyphicon glyphicon-euro"></span>
+		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> Déclarez votre chiffre d'affaire
+		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> La date limite est le {#{  }#}
 		</p>
 	</div>
 	<div class="jumbotron">
-		<p style="margin-left: 20px;" class="glyphicon">Graphique</p>
+		<ul style="margin-left: 20px;" class="glyphicon list-unstyled">
+			<li>Montant impôsable : {{ montantImposable }} €</li>
+			<ul style="padding-top: 15px;">
+				<li> {{ montantCotisationsSoc }} € de cotisation sociale</li>
+				<li> {{ montantImpotFormationPro }} € d'impôt sur la formation professionnelle</li>
+				<li> {{ montantImpotSurRevenu }} € d'impôts sur le revenu{% if liberatoire %}, à payer séparément, une seule fois dans l'année {% endif %}
+				</li>
+			</ul>
+		</ul>
 	</div>
 </div>
 {% endblock %}
+
+{# INSTRUCTIONS POUR OLIVIER: SI DANS L'ENTITE Entreprise LA VALEUR DE liberatoire EST A 1,
+LE MONTANT IMPOSABLE EST COTISATIONS SOC+IMPOT FORMATION PRO ET L'IMPOT SUR LE REVENU EST SEPARE,
+SINON, TOUT EST PAYE EN MEME TEMPS #}
 
 {% block aeplatform_script %}
 <script>

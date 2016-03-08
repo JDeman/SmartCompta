@@ -1,0 +1,87 @@
+{% extends "::layout_dashboard.php.twig" %}
+
+{% block title %}
+    Entreprise
+{% endblock %}
+
+{% block header %}
+    <div class="invisible" style="padding: 10px">
+        <span>a</span>
+    </div>
+{% endblock %}
+
+{% block aeplatform_body %}
+
+    <div class="row col-lg-12 col-md-12 jumbotron">
+
+        <table class="record_properties table table-responsive">
+            <tbody>
+            <tr>
+                <th>Nom de l'entreprise</th>
+                <td>{{ entity.NomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Activité</th>
+                <td>{{ entity.activite }}</td>
+            </tr>
+            <tr>
+                <th>Secteur d'activité</th>
+                <td>{{ entity.secteurDActivite }}</td>
+            </tr>
+            <tr>
+                <th>Déclaration</th>
+                <td>{{ entity.declaration }}</td>
+            </tr>
+            <tr>
+                <th>Libératoire</th>
+                <td>{{ entity.liberatoire }}</td>
+            </tr>
+            <tr>
+                <th>Date de lancement</th>
+                <td>{{ entity.dateDeLancement|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>ACCRE</th>
+                <td>{{ entity.accre }}</td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td>{{ entity.emailEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ entity.telephoneEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresseEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ entity.codePostalEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Numéro SIRET/SIREN</th>
+                <td>{{ entity.siret }}</td>
+            </tr>
+            <tr>
+                <th>Code NAF</th>
+                <td>{{ entity.nafId }}</td>
+            </tr>
+            <tr>
+                <th>Ville d'immatriculation au RCS</th>
+                <td>{{ entity.villeRcs }}</td>
+            </tr>
+            <tr>
+                <th>Chiffre d'affaire mensuel</th>
+                <td>{{ entity.chiffreDAffaireMensuel }} €</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <a class="btn btn-default" href="{{ path('edit_entreprise_user', { 'id': entity.id }) }}">
+            Éditer
+        </a>
+    </div>
+{% endblock %}

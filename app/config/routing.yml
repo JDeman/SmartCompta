@@ -2,6 +2,10 @@ ae_compta:
     resource: "@AEComptaBundle/Resources/config/routing.yml"
     prefix:   /
 
+ae_dash:
+    resource: "@AEDashBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ae_user:
     resource: "@AEUserBundle/Resources/config/routing.yml"
     #type:     annotation

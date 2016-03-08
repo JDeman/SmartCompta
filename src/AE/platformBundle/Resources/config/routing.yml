@@ -21,3 +21,17 @@ new_entreprise_user:
 show_entreprise_user:
     path:   /mon-entreprise
     defaults: {_controller: AEplatformBundle:Entreprise:showEntreprise}
+
+edit_entreprise_user:
+    path:     /mon-entreprise/{id}/edit
+    defaults: { _controller: AEplatformBundle:Entreprise:editEntreprise }
+
+update_entreprise_user:
+    path:     /mon-entreprise/{id}/update
+    defaults: { _controller: AEplatformBundle:Entreprise:update }
+    methods:  [POST, PUT]
+
+delete_entreprise_user:
+    path:     /mon-enteprise/{id}/delete
+    defaults: { _controller: AEplatformBundle:Entreprise:delete }
+    methods:  [POST, DELETE]

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new AE\UserBundle\AEUserBundle(),
             new Mremi\ContactBundle\MremiContactBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new AE\DashBundle\AEDashBundle(),
             new AE\ComptaBundle\AEComptaBundle(),
         );
 

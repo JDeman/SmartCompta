@@ -17,10 +17,10 @@ class ProfileType extends AbstractType {
     {
         $builder
             ->add('nom', 'text')
-            ->add('prenom', 'text')
+            ->add('prenom', 'text', array('label' => 'Prénom'))
             ->add('adresse', 'textarea')
             ->add('code_postal', 'number')
-            ->add('telephone', 'number')
+            ->add('telephone', 'number', array('label' => 'Téléphone'))
         ;
     }
 

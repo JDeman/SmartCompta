@@ -1,0 +1,30 @@
+achats:
+    path:     /
+    defaults: { _controller: "AEDashBundle:Achats:index" }
+
+achats_show:
+    path:     /{id}/show
+    defaults: { _controller: "AEDashBundle:Achats:show" }
+
+achats_new:
+    path:     /new
+    defaults: { _controller: "AEDashBundle:Achats:new" }
+
+achats_create:
+    path:     /create
+    defaults: { _controller: "AEDashBundle:Achats:create" }
+    methods:  POST
+
+achats_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AEDashBundle:Achats:edit" }
+
+achats_update:
+    path:     /{id}/update
+    defaults: { _controller: "AEDashBundle:Achats:update" }
+    methods:  [POST, PUT]
+
+achats_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AEDashBundle:Achats:delete" }
+    methods:  [POST, DELETE]

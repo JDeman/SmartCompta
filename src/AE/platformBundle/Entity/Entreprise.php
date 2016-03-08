@@ -26,8 +26,8 @@ class Entreprise
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $user;
@@ -125,7 +125,13 @@ class Entreprise
     private $declaration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
+     */
+
+    private $liberatoire;
+
+    /**
+     * @ORM\Column(type="boolean")
      */
 
     private $accre;
@@ -135,6 +141,12 @@ class Entreprise
      */
 
     private $date_de_lancement;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+
+    private $date_de_creation;
 
     /**
      * Set nom_entreprise
@@ -489,5 +501,75 @@ class Entreprise
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set liberatoire
+     *
+     * @param boolean $liberatoire
+     * @return Entreprise
+     */
+    public function setLiberatoire($liberatoire)
+    {
+        $this->liberatoire = $liberatoire;
+
+        return $this;
+    }
+
+    /**
+     * Get liberatoire
+     *
+     * @return boolean 
+     */
+    public function getLiberatoire()
+    {
+        return $this->liberatoire;
+    }
+
+
+    /**
+     * Set impotsMensuels
+     *
+     * @param \AE\ComptaBundle\Entity\ImpotsMensuels $impotsMensuels
+     * @return Entreprise
+     */
+    public function setImpotsMensuels(\AE\ComptaBundle\Entity\ImpotsMensuels $impotsMensuels = null)
+    {
+        $this->impotsMensuels = $impotsMensuels;
+
+        return $this;
+    }
+
+    /**
+     * Get impotsMensuels
+     *
+     * @return \AE\ComptaBundle\Entity\ImpotsMensuels 
+     */
+    public function getImpotsMensuels()
+    {
+        return $this->impotsMensuels;
+    }
+
+    /**
+     * Set date_de_creation
+     *
+     * @param \DateTime $dateDeCreation
+     * @return Entreprise
+     */
+    public function setDateDeCreation($dateDeCreation)
+    {
+        $this->date_de_creation = $dateDeCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get date_de_creation
+     *
+     * @return \DateTime 
+     */
+    public function getDateDeCreation()
+    {
+        return $this->date_de_creation;
     }
 }

@@ -2,14 +2,10 @@ ae_compta_homepage:
     path:     /hello/{name}
     defaults: { _controller: AEComptaBundle:Default:index }
 
-ae_compta_recettes:
-    resource: "@AEComptaBundle/Resources/config/routing/recettes.yml"
-    prefix:   /recettes
+ae_compta_simulation_save:
+    path:     /simulation/save
+    defaults: { _controller: AEComptaBundle:Simulation:saveImpotsMensuels }
 
-ae_compta_achats:
-    resource: "@AEComptaBundle/Resources/config/routing/achats.yml"
-    prefix:   /achats
-
-ae_compta_factures:
-    resource: "@AEComptaBundle/Resources/config/routing/factures.yml"
-    prefix:   /factures
+ae_compta_simulation_update:
+    path:     /simulation/update
+    defaults: { _controller: AEComptaBundle:Simulation:updateImpotsMensuels }

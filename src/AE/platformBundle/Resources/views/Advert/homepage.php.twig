@@ -28,92 +28,114 @@
 			</div>
 		</div>
 	</header>
-	{#<header id="myCarousel" class="carousel slide">
-		<!-- Création du Carroussel -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-
-
-		<!-- Slide du Carroussel -->
-		<div class="carousel-inner">
-			<div class="item active">
-				<div class="fill" style="background-image:url({{asset('img/logo_fond_marron_grand.jpg')}});"></div>
-				<div class="carousel-caption">
-					<h2>Caption 1</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill" style="background-image:url({{asset('img/logo_fond_marron_grand.jpg')}})"></div>
-				<div class="carousel-caption">
-					<h2>Caption 2</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill" style="background-image:url({{asset('img/logo_fond_marron_grand.jpg')}})"></div>
-				<div class="carousel-caption">
-					<h2>Caption 3</h2>
-				</div>
-			</div>
-		</div>
-
-		<!-- Controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="icon-prev"></span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" data-slide="next">
-			<span class="icon-next"></span>
-		</a>
-
-	</header>#}
 {% endblock %}
 
 {% block body %}
-	<div id="container" style="background-color: whitesmoke; padding-bottom: 300px;">
-		<div class="row" style="padding-top: 100px">
-			<div style="padding-left: 200px; font-size: 24px;">
-				<div class="col-xs-12 col-sm-6 col-md-5">
-					<p class="glyphicon glyphicon-ok">
-						Devis et Factures
-					</p></div>
-				<div class="col-xs-12 col-sm-6 col-md-5">
-					<p class="glyphicon glyphicon-ok">
-						Calcul du Chiffre d'Affaire
-					</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-5">
-					<p class="glyphicon glyphicon-ok">
-						Suivit des Cotisations
-					</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-5">
-					<p class="glyphicon glyphicon-ok">
-						Livre de Recette
-					</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-5">
-					<p class="glyphicon glyphicon-ok">
-						Registre des Achats
-					</p>
+	<div id="container" style="font-size: 24px;">
+
+		<section class="row jumbotron" id="accueil" style="background-color: whitesmoke; padding-bottom: 100px;">
+			<div style="padding-top: 50px">
+				<div>
+					<div class="col-xs-offset-2 col-xs-10 col-sm-offset-2 col-sm-4 col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4">
+						<p class="glyphicon glyphicon-ok">
+							Devis et Factures
+						</p></div>
+					<div class="col-xs-offset-2 col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-2 col-md-3 col-lg-offset-1 col-lg-4">
+						<p class="glyphicon glyphicon-ok">
+							Calcul du Chiffre d'Affaire
+						</p></div>
+					<div class="col-xs-offset-2 col-xs-10 col-sm-offset-2 col-sm-4 col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4">
+						<p class="glyphicon glyphicon-ok">
+							Suivit des Cotisations
+						</p>
+					</div>
+					<div class="col-xs-offset-2 col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-2 col-md-3 col-lg-offset-1 col-lg-4">
+						<p class="glyphicon glyphicon-ok">
+							Livre de Recette
+						</p>
+					</div>
+					<div class="col-xs-offset-2 col-xs-10 col-sm-offset-2 col-sm-7 col-md-offset-2 col-md-7 col-lg-offset-2 col-lg-7">
+						<p class="glyphicon glyphicon-ok">
+							Registre des Achats
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
+
+		<section id="pourqui" class="row jumbotron" style="background-color: whitesmoke;">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-9 col-lg-offset-1 col-lg-10">
+				<p class="glyphicon glyphicon-hand-right">
+					Vous venez de créer une entreprise ou vous en possédez déjà une.
+				</p>
+				<p class="glyphicon glyphicon-hand-right">
+					Vottre chiffre d'affaire en 2015 est inférieur à 282 200 € (HT) pour une activité d'achat/vente ou 32 900 € pour une activité de prestation de service.
+				</p>
+				<p class="glyphicon glyphicon-hand-right">
+					Vous déclarer votre activité d'auto-entrepreneur.
+				</p>
+			</div>
+		</section>
+
+		<section id="webmobile" class="row jumbotron" style="background-color: whitesmoke;">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-9 col-lg-offset-1 col-lg-10">
+				<p class="glyphicon">
+					Une application aussi bien mobile que web pour suivre votre comptabilité à chaques instants.
+				</p>
+			</div>
+		</section>
+
+		<section id="benefice" class="row jumbotron" style="background-color: whitesmoke;">
+			<div class="glyphicon text-center col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-9 col-lg-offset-1 col-lg-10">
+				<ul class="list-inline">
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Facturation</p>
+					</li>
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Registres</p>
+					</li>
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Cotisations</p>
+					</li>
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Documents</p>
+					</li>
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Graphiques</p>
+					</li>
+					<li>
+						<span class="glyphicon-unchecked"></span>
+						<p>Chiffre d'affaire</p>
+					</li>
+				</ul>
+				<p >SmartCompta vous fera gagner en temps et en argent.<br>
+					Mieux qu'un logiciel, SmartCompta évolue de manière permanente.<br>
+					Nous sommes à votre service.
+				</p>
+			</div>
+		</section>
+
 	</div>
 {% endblock %}
 
 {% block footer %}
-	<div style="margin-top: -300px">
+	<div style="margin-top: -40px">
 		{{ parent() }}
 	</div>
 {% endblock %}
 
 {% block script %}
-<script>
-	$('.carousel').carousel({
-		interval: 5000
-	})
-</script>
+	<script>
+		$('.carousel').carousel({
+			interval: 5000
+		})
+	</script>
+	<!-- Scrolling Nav JavaScript -->
+	<script src="{{ asset('bootstrap/js/jquery.easing.min.js') }}"></script>
+	<script src="{{ asset('bootstrap/js/scrolling.js') }}"></script>
 {% endblock %}
-

@@ -1,0 +1,55 @@
+{% extends '::layout_dashboard.php.twig' %}
+{% form_theme delete_form '::Form/field.php.twig' %}
+
+{% block header %}
+    <div class="invisible" style="padding: 10px">
+        <span>a</span>
+    </div>
+{% endblock %}
+
+{% block aeplatform_body %}
+<div class="row col-lg-12 col-md-12 jumbotron">
+    <table class="record_properties table table-responsive">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ entity.montant }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ entity.client }}</td>
+            </tr>
+            <tr>
+                <th>Mode de paiement</th>
+                <td>{{ entity.modeDePaiement }}</td>
+            </tr>
+            <tr>
+                <th>Justificatif</th>
+                <td>{{ entity.justificatif }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions list-inline list-unstyled text-center">
+        <li>
+            <a class="btn btn-default" href="{{ path('recettes') }}">
+                Retour à la liste
+            </a>
+        </li>
+        <li>
+            <a class="btn btn-default" href="{{ path('recettes_edit', { 'id': entity.id }) }}">
+                Édition
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+</div>
+{% endblock %}
