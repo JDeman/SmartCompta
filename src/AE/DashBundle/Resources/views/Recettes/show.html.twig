@@ -33,7 +33,8 @@
             </tr>
             <tr>
                 <th>Justificatif</th>
-                <td>{{ entity.justificatif }}</td>
+                <td><img src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/>
+                </td>
             </tr>
         </tbody>
     </table>

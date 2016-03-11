@@ -58,7 +58,6 @@ class Recettes
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Téléchargez un justificatif.")
      */
 
     private $justificatif;
