@@ -40,6 +40,21 @@ class AchatsController extends Controller
 
         if ($form->isValid()) {
 
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $entity->getJustificatif();
+
+            if ($file) {
+
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Move the file to the directory where justificatifs are stored
+                $brochuresDir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/justificatifs';
+                $file->move($brochuresDir, $fileName);
+
+                $entity->setJustificatif($fileName);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

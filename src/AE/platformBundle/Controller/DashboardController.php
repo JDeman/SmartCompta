@@ -13,6 +13,10 @@ class DashboardController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $entreprise = $user->getEntreprise();
 
+        if (!$entreprise) {
+            return $this->redirectToRoute('new_entreprise_user', array(), 301);
+        }
+
         $entreprise_id = $entreprise->getId();
         $liberatoire = $entreprise->getLiberatoire();
 

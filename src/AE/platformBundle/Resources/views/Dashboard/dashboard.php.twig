@@ -26,6 +26,12 @@
 		<p style="margin-left: 20px;" class="glyphicon"> Chiffre d'affaire actuel : {{ chiffreAffaire }}
 			<span class="glyphicon glyphicon-euro"></span>
 		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> Déclarez votre chiffre d'affaire
+		</p>
+		<br>
+		<p style="margin-left: 20px;" class="glyphicon"> La date limite est le {#{  }#}
+		</p>
 	</div>
 	<div class="jumbotron">
 		<ul style="margin-left: 20px;" class="glyphicon list-unstyled">
@@ -33,7 +39,7 @@
 			<ul style="padding-top: 15px;">
 				<li> {{ montantCotisationsSoc }} € de cotisation sociale</li>
 				<li> {{ montantImpotFormationPro }} € d'impôt sur la formation professionnelle</li>
-				<li> {{ montantImpotSurRevenu }} € d'impôts sur le revenu{% if liberatoire %}, à payer en une fois dans l'anné{% endif %}
+				<li> {{ montantImpotSurRevenu }} € d'impôts sur le revenu{% if liberatoire %}, à payer séparément, une seule fois dans l'année {% endif %}
 				</li>
 			</ul>
 		</ul>

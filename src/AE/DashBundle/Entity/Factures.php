@@ -50,12 +50,6 @@ class Factures
      * @ORM\Column(type="float")
      */
 
-    private $prixTotalHT;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-
     private $recetteTotaleHT;
 
 
@@ -90,29 +84,6 @@ class Factures
     public function getDate()
     {
         return $this->date;
-    }
-
-    /**
-     * Set prixTotalHT
-     *
-     * @param float $prixTotalHT
-     * @return Factures
-     */
-    public function setPrixTotalHT($prixTotalHT)
-    {
-        $this->prixTotalHT = $prixTotalHT;
-
-        return $this;
-    }
-
-    /**
-     * Get prixTotalHT
-     *
-     * @return float 
-     */
-    public function getPrixTotalHT()
-    {
-        return $this->prixTotalHT;
     }
 
     /**

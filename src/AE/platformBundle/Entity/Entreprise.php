@@ -27,7 +27,7 @@ class Entreprise
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $user;
@@ -141,6 +141,12 @@ class Entreprise
      */
 
     private $date_de_lancement;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+
+    private $date_de_creation;
 
     /**
      * Set nom_entreprise
@@ -542,5 +548,28 @@ class Entreprise
     public function getImpotsMensuels()
     {
         return $this->impotsMensuels;
+    }
+
+    /**
+     * Set date_de_creation
+     *
+     * @param \DateTime $dateDeCreation
+     * @return Entreprise
+     */
+    public function setDateDeCreation($dateDeCreation)
+    {
+        $this->date_de_creation = $dateDeCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get date_de_creation
+     *
+     * @return \DateTime 
+     */
+    public function getDateDeCreation()
+    {
+        return $this->date_de_creation;
     }
 }

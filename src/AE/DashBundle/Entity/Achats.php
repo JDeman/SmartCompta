@@ -55,6 +55,9 @@ class Achats
 
     private $date;
 
+    /**
+     * @ORM\Column(type="string")
+     */
 
     private $justificatif;
 
@@ -162,43 +165,6 @@ class Achats
     }
 
     /**
-     * Set justificatif
-     *
-     * @param string $justificatif
-     * @return Recettes
-     */
-    public function setJustificatif($justificatif)
-    {
-        $this->justificatif = $justificatif;
-
-        return $this;
-    }
-
-    /**
-     * Get justificatif
-     *
-     * @return string
-     */
-    public function getJustificatif()
-    {
-        return $this->justificatif;
-    }
-
-    public function getFile()
-
-    {
-        return $this->file;
-    }
-
-
-    public function setFile(UploadedFile $file = null)
-
-    {
-        $this->file = $file;
-    }
-
-
-    /**
      * Set entreprise
      *
      * @param \AE\platformBundle\Entity\Entreprise $entreprise
@@ -219,5 +185,28 @@ class Achats
     public function getEntreprise()
     {
         return $this->entreprise;
+    }
+
+    /**
+     * Set justificatif
+     *
+     * @param string $justificatif
+     * @return Achats
+     */
+    public function setJustificatif($justificatif)
+    {
+        $this->justificatif = $justificatif;
+
+        return $this;
+    }
+
+    /**
+     * Get justificatif
+     *
+     * @return string 
+     */
+    public function getJustificatif()
+    {
+        return $this->justificatif;
     }
 }

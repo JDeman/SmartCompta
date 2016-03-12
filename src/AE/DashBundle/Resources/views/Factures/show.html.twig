@@ -61,11 +61,11 @@
                 <th>Forme juridique</th>
                 <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
             </tr>
-            {% endfor %}
             <tr>
                 <th>Prix total HT</th>
-                <td>{{ entity.prixTotalHT }}</td>
+                <td>{{ entity.factureProduit.prixTotalHT }}</td>
             </tr>
+            {% endfor %}
             <tr>
                 <th>Total HT</th>
                 <td>{{ entity.recetteTotaleHT }}</td>

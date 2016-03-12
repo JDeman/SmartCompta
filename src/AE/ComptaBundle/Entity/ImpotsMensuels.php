@@ -23,6 +23,7 @@ class ImpotsMensuels
 
     /**
      * @ORM\OnetoOne(targetEntity="AE\platformBundle\Entity\Entreprise")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
 
     private $entreprise;
