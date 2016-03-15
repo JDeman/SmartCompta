@@ -1,6 +1,10 @@
 {% extends '::layout_dashboard.php.twig' %}
 {% form_theme delete_form '::Form/field.php.twig' %}
 
+{% block title %}
+    {{ parent() }} - Recettes
+{% endblock %}
+
 {% block header %}
     <div class="invisible" style="padding: 10px">
         <span>a</span>
@@ -33,7 +37,7 @@
             </tr>
             <tr>
                 <th>Justificatif</th>
-                <td><img src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/>
+                <td><img class="img-responsive img-thumbnail" src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/>
                 </td>
             </tr>
         </tbody>

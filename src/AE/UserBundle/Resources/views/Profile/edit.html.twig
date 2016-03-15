@@ -1,6 +1,9 @@
 {% extends "::layout_dashboard.php.twig" %}
 {% form_theme form '::Form/field.php.twig' %}
 
+{% block title %}
+    {{ parent() }} - Mon Profil
+{% endblock %}
 
 {% block header %}
     <div class="invisible" style="padding: 10px">

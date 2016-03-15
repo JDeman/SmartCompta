@@ -7,8 +7,6 @@
     <!-- Compabilité mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Site Saas{% endblock %}</title>
-
     {% block stylesheets %}
         <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('bootstrap/css/clean-blog.min.css') }}" rel="stylesheet">
@@ -17,7 +15,9 @@
         <link href="{{ asset('style.css" rel="stylesheet') }}">
     {% endblock %}
 
-    <title></title>
+    {% block title %}
+    <title>SmartCompta</title>
+    {% endblock %}
 
     <!-- Code à rajouter pour les navigateurs ne prennant pas en compte HTML5 et CSS3 (attention Respond.js peut ne pas fonctionner avec les CDN -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

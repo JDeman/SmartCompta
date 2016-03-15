@@ -2,27 +2,20 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block button %}
-    <div style="margin-top: -70px;" class="pull-right">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-            <a href="{{ path('fos_user_security_logout') }}">
-                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-            </a>
-        {% else %}
-            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-        {% endif %}
-    </div>
-{% endblock button %}
+{% block title %}
+    {{ parent() }} - Confirmation
+{% endblock %}
+
+{% block navbar %}
+{% endblock navbar %}
 
 {% block fos_user_content %}
-    <div style="margin-left: 30px; margin-top: 100px;">
+    <div style="margin-left: 30px; margin-top: 20px;">
         <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
         {% if targetUrl %}
         <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
         {% endif %}
 
-        <a class="btn btn-default" href="{{ path('dashboard_user') }}">Aller au Dashboard</a>
         <a class="btn btn-default" href="{{ path('new_entreprise_user') }}">Enregistrer votre entreprise</a>
     </div>
 {% endblock fos_user_content %}

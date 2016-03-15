@@ -2,6 +2,9 @@
 {% form_theme edit_form '::Form/field.php.twig' %}
 {% form_theme delete_form '::Form/field.php.twig' %}
 
+{% block title %}
+    {{ parent() }} - Recettes
+{% endblock %}
 
 {% block header %}
     <div class="invisible" style="padding: 10px">

@@ -1,7 +1,7 @@
 {% extends "::layout_dashboard.php.twig" %}
 
 {% block title %}
-	Dashboard
+	{{ parent() }} - Dashboard
 {% endblock %}
 
 {% block header %}
@@ -25,12 +25,6 @@
 	<div class="jumbotron">
 		<p style="margin-left: 20px;" class="glyphicon"> Chiffre d'affaire actuel : {{ chiffreAffaire }}
 			<span class="glyphicon glyphicon-euro"></span>
-		</p>
-		<br>
-		<p style="margin-left: 20px;" class="glyphicon"> Déclarez votre chiffre d'affaire
-		</p>
-		<br>
-		<p style="margin-left: 20px;" class="glyphicon"> La date limite est le {#{  }#}
 		</p>
 	</div>
 	<div class="jumbotron">

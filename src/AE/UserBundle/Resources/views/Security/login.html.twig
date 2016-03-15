@@ -2,15 +2,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block title %}
-    Connection
+    {{ parent() }} - Connection
 {% endblock %}
-
-{#
-{% block fos_user_content %}
-{% if error %}
-    <div style="margin-left: 20px; margin-top: 30px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-
-#}
 
 {% block fos_user_content %}
 {% if error %}
