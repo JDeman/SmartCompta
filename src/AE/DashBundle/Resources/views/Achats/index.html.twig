@@ -30,11 +30,11 @@
             {% for entity in entities %}
                 <tr>
                     {#<td><a href="{{ path('achats_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
-                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
-                    <td>{{ entity.montant }} €</td>
-                    <td>{{ entity.fournisseur }}</td>
-                    <td>{{ entity.modeDePaiement }}</td>
-                    <td><img src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/></td>
+                    <td style="width: 140px;">{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                    <td style="width: 140px;">{{ entity.montant }} €</td>
+                    <td style="width: 140px;">{{ entity.fournisseur }}</td>
+                    <td style="width: 140px;">{{ entity.modeDePaiement }}</td>
+                    <td><img class="img-responsive img-thumbnail" src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/></td>
                     <td>
                     <ul>
                         <li>

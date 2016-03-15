@@ -53,6 +53,8 @@ class FacturesController extends Controller
 
                 $element->setPrixTotalHT($prixTotal);
                 $recetteTotale = $recetteTotale + $prixTotal;
+
+                $element->setFactures($entity);
             }
 
             $entity->setRecetteTotaleHT($recetteTotale);
@@ -139,6 +141,9 @@ class FacturesController extends Controller
 
         $entity = $em->getRepository('AEDashBundle:Factures')->find($id);
 
+        $entreprise = $entity->getEntreprise();
+        $factureProduit = $em->getRepository('AEDashBundle:FactureProduit')->findOneByFactures($entity);
+
         if (!$entity) {
             throw $this->createNotFoundException('Entité Factures impossible à trouver.');
         }
@@ -147,6 +152,8 @@ class FacturesController extends Controller
 
         return $this->render('AEDashBundle:Factures:show.html.twig', array(
             'entity'      => $entity,
+            'entreprise'  => $entreprise,
+            'factureProduit' => $factureProduit,
             'delete_form' => $deleteForm->createView(),
         ));
     }
