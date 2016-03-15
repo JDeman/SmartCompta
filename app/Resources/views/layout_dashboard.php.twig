@@ -25,53 +25,28 @@
         {% endfor %}
     {% endif %}
 
-    <!--<div id="container">
-        <div class="raw" style="margin-left: 40px;">
-            <h1><a href="{{ path('dashboard_user') }}">Accueil</a></h1>
-        </div>
-        <div class="raw" style="margin-top: 40px;"-->
+    <!--wrapper-->
+    <div id="wrapper">
+        <a href="#menu-toggle" class="btn btn-default mobile-only" style="margin-top: 20px;" id="menu-toggle">Menu</a>
+        <div id="sidebar-wrapper" style="padding-left: 20px">
+            <ul style="margin-left: -20px" class="sidebar-nav glyphicon">
+                <hr class="sidebar-edge">
+                <li><a href="{{ path('recettes') }}">Livre des recettes</a></li><hr class="sidebar-edge">
+                <li><a href="{{ path('achats') }}">Registre des achats</a></li><hr class="sidebar-edge">
+                <li><a href="{{ path('factures') }}">Facturation / Devis</a></li>
+            </ul>
+         </div>
 
-            <!--wrapper-->
-            <div id="wrapper">
-                <a href="#menu-toggle" class="btn btn-default mobile-only" style="margin-top: 20px;" id="menu-toggle">Menu</a>
-                <div id="sidebar-wrapper" style="padding-left: 20px">
-                    <ul style="margin-left: -20px" class="sidebar-nav glyphicon">
-                        <!--li>
-                            <a href="#menu-toggle" class="btn" id="menu-toggle">Toggle Menu</a>
-                        </li-->
-                        <li class="sidebar-brand">
-                            <a href="{{ path('dashboard_user') }}">Accueil</a>
-                        </li><hr class="sidebar-edge">
-                        <li><a href="{{ path('recettes') }}">Livre des recettes</a></li><hr class="sidebar-edge">
-                        <li><a href="{{ path('achats') }}">Registre des achats</a></li><hr class="sidebar-edge">
-                        <li><a href="{{ path('factures') }}">Facturation / Devis</a></li>
-                    </ul>
-                 </div>
-
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        {% block fos_user_content %}
-                        {% endblock fos_user_content %}
-                        {% block aeplatform_body %}
-                        {% endblock %}
-                    </div>
-                </div>
-
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+                {% block aeplatform_body %}
+                {% endblock %}
             </div>
-
-            <!--section class="col-lg-2 col-md-2 col-sm-3" style="text-align: center">
-                <ul class="list-unstyled" >
-
-                </ul>
-            </section>
-            {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
-
-            <section class="col-lg-10 col-md-10 col-sm-7">
-
-            </section>
         </div>
 
-    </div-->
+    </div>
 
 {% endblock body %}
 

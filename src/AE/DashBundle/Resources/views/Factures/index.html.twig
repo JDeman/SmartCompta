@@ -1,5 +1,9 @@
 {% extends '::layout_dashboard.php.twig' %}
 
+{% block title %}
+    {{ parent() }} - Factures
+{% endblock %}
+
 {% block header %}
     <div class="invisible" style="padding: 10px">
         <span>a</span>
@@ -37,7 +41,7 @@
                                 <a href="{{ path('factures_show', { 'id': entity.id }) }}">Aperçu</a>
                             </li>
                             <li>
-                                <a href="{{ path('factures_edit', { 'id': entity.id }) }}">Editer</a>
+                                <a href="{{ path('factures_edit', { 'id': entity.id }) }}">Édition</a>
                             </li>
                         </ul>
                     </td>

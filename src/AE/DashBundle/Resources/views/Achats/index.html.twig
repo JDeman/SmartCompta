@@ -1,5 +1,9 @@
 {% extends '::layout_dashboard.php.twig' %}
 
+{% block title %}
+    {{ parent() }} - Achats
+{% endblock %}
+
 {% block header %}
     <div class="invisible" style="padding: 10px">
         <span>a</span>
@@ -38,10 +42,10 @@
                     <td>
                     <ul>
                         <li>
-                            <a href="{{ path('achats_show', { 'id': entity.id }) }}">aperçu</a>
+                            <a href="{{ path('achats_show', { 'id': entity.id }) }}">Aperçu</a>
                         </li>
                         <li>
-                            <a href="{{ path('achats_edit', { 'id': entity.id }) }}">édition</a>
+                            <a href="{{ path('achats_edit', { 'id': entity.id }) }}">Édition</a>
                         </li>
                     </ul>
                     </td>

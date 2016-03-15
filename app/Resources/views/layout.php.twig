@@ -17,7 +17,9 @@
         <link href="{{ asset('style.css" rel="stylesheet') }}">
     {% endblock %}
 
-    <title></title>
+    {% block title %}
+    <title>SmartCompta</title>
+    {% endblock %}
 
     <!-- Code à rajouter pour les navigateurs ne prennant pas en compte HTML5 et CSS3 (attention Respond.js peut ne pas fonctionner avec les CDN -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -1,9 +1,8 @@
 {% extends "::layout_dashboard.php.twig" %}
 
-
-{#{% block name %}{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-{% endblock name %}
-#}
+{% block title %}
+    {{ parent() }} - Mon Profil
+{% endblock %}
 
 {% block header %}
     <div class="invisible" style="padding: 10px">
