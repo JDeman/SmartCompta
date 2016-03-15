@@ -28,3 +28,7 @@ factures_delete:
     path:     /{id}/delete
     defaults: { _controller: "AEDashBundle:Factures:delete" }
     methods:  [POST, DELETE]
+
+factures_twig_to_pdf:
+    path:     /{id}/twig-to-pdf
+    defaults: { _controller: "AEDashBundle:Factures:twigToPdf" }

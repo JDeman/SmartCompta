@@ -1,10 +1,6 @@
-{% extends '::layout_dashboard.php.twig' %}
-{% form_theme delete_form '::Form/field.php.twig' %}
-
-
 {% block header %}
     <div class="invisible" style="padding: 10px">
-        <span>a</span>
+        <span> </span>
     </div>
 {% endblock %}
 
@@ -72,25 +68,6 @@
             </tr>
             </tbody>
         </table>
-
-        <ul class="record_actions list-inline list-unstyled text-center">
-            <li>
-                <a class="btn btn-default" href="{{ path('factures') }}">
-                    Retour à la liste
-                </a>
-            </li>
-            <li>
-                <a class="btn btn-default" href="{{ path('factures_edit', { 'id': entity.id }) }}">
-                    Édition
-                </a>
-            </li>
-            <li>
-                <a class="btn btn-default" href="{{ path('factures_twig_to_pdf', { 'id': entity.id }) }}">
-                    PDF
-                </a>
-            </li>
-            <li>{{ form(delete_form) }}</li>
-        </ul>
     </div>
 {% endblock %}
 

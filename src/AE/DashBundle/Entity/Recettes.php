@@ -196,7 +196,7 @@ class Recettes
      * @param string $justificatif
      * @return Recettes
      */
-    public function setJustificatif($justificatif)
+    public function setJustificatif($justificatif = null)
     {
         $this->justificatif = $justificatif;
 

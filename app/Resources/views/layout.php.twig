@@ -12,8 +12,8 @@
     {% block stylesheets %}
         <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('bootstrap/css/clean-blog.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('bootstrap/css/full-slider.css') }}" rel="stylesheet">
-        <link href="{{ asset('bootstrap/css/simple-sidebar.css') }}" rel="stylesheet">
+        <link href="{{ absolute_url(asset('bootstrap/css/full-slider.css')) }}" rel="stylesheet">
+        <link href="{{ absolute_url(asset('bootstrap/css/simple-sidebar.css')) }}" rel="stylesheet">
         <link href="{{ asset('style.css" rel="stylesheet') }}">
     {% endblock %}
 
@@ -87,9 +87,9 @@
 {% endblock footer %}
 
     <!-- Script JavaScript -->
-    <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
+    <script src="{{ absolute_url(asset('bootstrap/js/jquery.js')) }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/navbar_slide.js') }}"></script>
+    <script src="{{ absolute_url(asset('bootstrap/js/navbar_slide.js')) }}"></script>
     {%  block javascript %}
         {% block script %}
         {% endblock %}
