@@ -86,28 +86,31 @@
             <table class="table table-responsive">
                 <tbody>
                     <p>Produits</p>
+<<<<<<< HEAD
 
                     {% for produits in factureProduit.produits %}
+=======
+                    {% for factureProduit in entity.factureProduit %}
+>>>>>>> 4e739197cf826cb57bdbd053ab636f27ff8cfa1b
                         <tr>
-                            <th>Quantité</th>
+                            <th>Quantite</th>
                             <td>{{ factureProduit.quantite }}</td>
                         </tr>
-
+                       <tr>
+                            <th>Reference</th>
+                            <td>{{ factureProduit.produits.reference }}</td>
+                        </tr>
                         <tr>
                             <th>Designation</th>
-                            <td>{{ entity.factureProduit.produits.reference }}</td>
+                            <td>{{ factureProduit.produits.designation }}</td>
                         </tr>
                         <tr>
-                            <th>Code postal</th>
-                            <td>{{ entity.factureProduit.produits.designation }}</td>
-                        </tr>
-                        <tr>
-                            <th>Forme juridique</th>
-                            <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
+                            <th>Prix unitaire HT</th>
+                            <td>{{ factureProduit.produits.prixUnitaireHT }}</td>
                         </tr>
                         <tr>
                             <th>Prix total HT</th>
-                            <td>{{ entity.factureProduit.prixTotalHT }}</td>
+                            <td>{{ factureProduit.prixTotalHT }}</td>
                         </tr>
                     {% endfor %}
 
@@ -116,7 +119,7 @@
         </div>
 
         <div id="cadre">
-            <p><B>Total HT</B> : {{ entity.recetteTotaleHT }}<br>TVA non applicable, article 293B du CGI</p>
+            <p><B>Total HT</B> : {{ entity.recetteTotaleHT }} €<br>TVA non applicable, article 293B du CGI</p>
         </div>
 
         <ul class="record_actions list-inline list-unstyled text-center" style="margin-top: 30px">
@@ -128,6 +131,11 @@
             <li>
                 <a class="btn btn-default" href="{{ path('factures_edit', { 'id': entity.id }) }}">
                     Édition
+                </a>
+            </li>
+            <li>
+                <a class="btn btn-default" href="{{ path('factures_twig_to_pdf', { 'id': entity.id }) }}">
+                    PDF
                 </a>
             </li>
             <li>{{ form(delete_form) }}</li>

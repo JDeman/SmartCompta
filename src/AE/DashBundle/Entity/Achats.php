@@ -193,7 +193,7 @@ class Achats
      * @param string $justificatif
      * @return Achats
      */
-    public function setJustificatif($justificatif)
+    public function setJustificatif($justificatif = null)
     {
         $this->justificatif = $justificatif;
 
