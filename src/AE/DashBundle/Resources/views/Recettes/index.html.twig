@@ -1,5 +1,9 @@
 {% extends '::layout_dashboard.php.twig' %}
 
+{% block title %}
+    <title>SmartCompta - Recettes</title>
+{% endblock %}
+
 {% block header %}
     <div class="invisible" style="padding: 10px">
         <span>a</span>
@@ -30,18 +34,18 @@
             {% for entity in entities %}
                 <tr>
                     {#<td><a href="{{ path('recettes_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
-                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
-                    <td>{{ entity.montant }} €</td>
-                    <td>{{ entity.client }}</td>
-                    <td>{{ entity.modeDePaiement }}</td>
-                    <td>{{ entity.justificatif }}</td>
+                    <td style="width: 140px;">{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                    <td style="width: 140px;">{{ entity.montant }} €</td>
+                    <td style="width: 140px;">{{ entity.client }}</td>
+                    <td style="width: 140px;">{{ entity.modeDePaiement }}</td>
+                    <td><img class="img-responsive img-thumbnail" src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/></td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('recettes_show', { 'id': entity.id }) }}">aperçu</a>
+                                <a href="{{ path('recettes_show', { 'id': entity.id }) }}">Aperçu</a>
                             </li>
                             <li>
-                                <a href="{{ path('recettes_edit', { 'id': entity.id }) }}">édition</a>
+                                <a href="{{ path('recettes_edit', { 'id': entity.id }) }}">Édition</a>
                             </li>
                         </ul>
                     </td>

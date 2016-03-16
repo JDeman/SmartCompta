@@ -1,6 +1,10 @@
 {% extends '::layout_dashboard.php.twig' %}
 {% form_theme delete_form '::Form/field.php.twig' %}
 
+{% block title %}
+    <title>SmartCompta - Recettes</title>
+{% endblock %}
+
 {% block header %}
     <div class="invisible" style="padding: 10px">
         <span>a</span>
@@ -33,7 +37,8 @@
             </tr>
             <tr>
                 <th>Justificatif</th>
-                <td>{{ entity.justificatif }}</td>
+                <td><img class="img-responsive img-thumbnail" src="{{ asset('uploads/justificatifs/' ~ entity.justificatif) }}"/>
+                </td>
             </tr>
         </tbody>
     </table>

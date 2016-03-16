@@ -44,16 +44,17 @@ class AchatsController extends Controller
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $entity->getJustificatif();
 
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            if ($file) {
 
-            // Move the file to the directory where brochures are stored
-            $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/justificatifs';
-            $file->move($brochuresDir, $fileName);
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
 
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $entity->setJustificatif($fileName);
+                // Move the file to the directory where justificatifs are stored
+                $brochuresDir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/justificatifs';
+                $file->move($brochuresDir, $fileName);
+
+                $entity->setJustificatif($fileName);
+            }
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AE\DashBundle\Entity\Factures;
 use AE\DashBundle\Form\FacturesType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Factures controller.
@@ -53,6 +54,9 @@ class FacturesController extends Controller
 
                 $element->setPrixTotalHT($prixTotal);
                 $recetteTotale = $recetteTotale + $prixTotal;
+
+                $element->setFactures($entity);
+
             }
 
             $entity->setRecetteTotaleHT($recetteTotale);
@@ -139,6 +143,9 @@ class FacturesController extends Controller
 
         $entity = $em->getRepository('AEDashBundle:Factures')->find($id);
 
+        $entreprise = $entity->getEntreprise();
+        $factureProduit = $em->getRepository('AEDashBundle:FactureProduit')->findOneByFactures($entity);
+
         if (!$entity) {
             throw $this->createNotFoundException('Entité Factures impossible à trouver.');
         }
@@ -147,6 +154,8 @@ class FacturesController extends Controller
 
         return $this->render('AEDashBundle:Factures:show.html.twig', array(
             'entity'      => $entity,
+            'entreprise'  => $entreprise,
+            'factureProduit' => $factureProduit,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -262,5 +271,35 @@ class FacturesController extends Controller
             ->add('submit', 'submit', array('label' => 'Supprimer'))
             ->getForm()
             ;
+    }
+
+    public function twigToPdfAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AEDashBundle:Factures')->find($id);
+
+        $entreprise = $entity->getEntreprise();
+        $factureProduit = $em->getRepository('AEDashBundle:FactureProduit')->findOneByFactures($entity);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Entité Factures impossible à trouver.');
+        }
+
+        $html = $this->renderView('AEDashBundle:Factures:printable.html.twig', array(
+            'entity'      => $entity,
+            'entreprise'  => $entreprise,
+            'factureProduit' => $factureProduit,
+        ));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf" ',
+                'Content-Disposition'   => 'attachment; filename="facture.pdf" '
+            )
+        );
+
     }
 }

@@ -22,7 +22,10 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "mremi/contact-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "~2",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "knplabs/knp-snappy-bundle": "dev-master",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "h4cc/wkhtmltoimage-amd64": "0.12.x"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

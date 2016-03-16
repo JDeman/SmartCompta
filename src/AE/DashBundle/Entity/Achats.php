@@ -57,7 +57,6 @@ class Achats
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Téléchargez un justificatif.")
      */
 
     private $justificatif;
@@ -194,7 +193,7 @@ class Achats
      * @param string $justificatif
      * @return Achats
      */
-    public function setJustificatif($justificatif)
+    public function setJustificatif($justificatif = null)
     {
         $this->justificatif = $justificatif;
 

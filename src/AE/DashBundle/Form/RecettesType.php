@@ -28,7 +28,9 @@ class RecettesType extends AbstractType
                     return $value;
                 },
             ))
-            ->add('justificatif', 'file')
+            ->add('justificatif', 'file', array(
+                'required' => false
+            ))
         ;
     }
 
