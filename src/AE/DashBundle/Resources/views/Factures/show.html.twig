@@ -86,17 +86,13 @@
             <table class="table table-responsive">
                 <tbody>
                     <p>Produits</p>
-<<<<<<< HEAD
 
-                    {% for produits in factureProduit.produits %}
-=======
                     {% for factureProduit in entity.factureProduit %}
->>>>>>> 4e739197cf826cb57bdbd053ab636f27ff8cfa1b
                         <tr>
                             <th>Quantite</th>
                             <td>{{ factureProduit.quantite }}</td>
                         </tr>
-                       <tr>
+                        <tr>
                             <th>Reference</th>
                             <td>{{ factureProduit.produits.reference }}</td>
                         </tr>
