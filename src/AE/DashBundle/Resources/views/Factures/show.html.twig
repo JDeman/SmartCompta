@@ -86,27 +86,26 @@
             <table class="table table-responsive">
                 <tbody>
                     <p>Produits</p>
-                    {% for produits in factureProduit.produits %}
+                    {% for factureProduit in entity.factureProduit %}
                         <tr>
-                            <th>Quantité</th>
+                            <th>Quantite</th>
                             <td>{{ factureProduit.quantite }}</td>
                         </tr>
-
+                       <tr>
+                            <th>Reference</th>
+                            <td>{{ factureProduit.produits.reference }}</td>
+                        </tr>
                         <tr>
                             <th>Designation</th>
-                            <td>{{ entity.factureProduit.produits.reference }}</td>
+                            <td>{{ factureProduit.produits.designation }}</td>
                         </tr>
                         <tr>
-                            <th>Code postal</th>
-                            <td>{{ entity.factureProduit.produits.designation }}</td>
-                        </tr>
-                        <tr>
-                            <th>Forme juridique</th>
-                            <td>{{ entity.factureProduit.produits.prixUnitaireHT }}</td>
+                            <th>Prix unitaire HT</th>
+                            <td>{{ factureProduit.produits.prixUnitaireHT }}</td>
                         </tr>
                         <tr>
                             <th>Prix total HT</th>
-                            <td>{{ entity.factureProduit.prixTotalHT }}</td>
+                            <td>{{ factureProduit.prixTotalHT }}</td>
                         </tr>
                     {% endfor %}
 
